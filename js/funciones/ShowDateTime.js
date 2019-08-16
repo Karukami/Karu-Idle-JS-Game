@@ -2,6 +2,7 @@
 /* SHOW DATE AND TIME */
 /*--------------------*/
 	//Prints the current date
+	//Requires an html div with id "clockcontainer"
 	//Ex. Today is Wednesday, August 14, 2019
 	function ShowDateTime() {
 		var date = new Date();
