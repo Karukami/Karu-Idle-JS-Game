@@ -4,8 +4,8 @@ This is a browser game, made using HTML, CSS and JavaScript.
 
 ## How to play:
 
-1.Download/clone the game.
-2.Open jsexternal.html file in your web browser (So far only Opera has been tested).
+1.Download/clone the game.  
+2.Open jsexternal.html file in your web browser (So far only Opera has been tested).  
 3.As you can see, there is a money counter and 4 big buttons:
 
 	*Make Money: Adds $1 to the money counter.
@@ -20,5 +20,5 @@ This is a browser game, made using HTML, CSS and JavaScript.
 
 ---
 Idle Games can be a bit addicting, it's weird how just watching a number grow makes
-you feel somehow rewarded. I love idle games myself, so I'm always trying to make one
+you feel somehow rewarded.  I love idle games myself, so I'm always trying to make one
 whenever I learn a new language.
