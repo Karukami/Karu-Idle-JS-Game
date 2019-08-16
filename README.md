@@ -2,7 +2,7 @@
 
 This is a browser game, made using HTML, CSS and JavaScript.
 
-##How to play:
+## How to play:
 
 1.Download/clone the game.
 2.Open jsexternal.html file in your web browser (So far only Opera has been tested).
@@ -13,7 +13,7 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*Save Game: Creates a localstorage file with your saved money and autoclicker counters.
 	*Load Game: Looks for a saved game and loads it.
 ---
-##Functionalities:
+## Functionalities:
 
 	*Autoclickers: You can buy these to make the game play itself!
 	*LocalStorage integration: you can save and load your game!
