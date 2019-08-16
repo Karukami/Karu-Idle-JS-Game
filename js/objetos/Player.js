@@ -13,7 +13,7 @@ function Player(){
 			this.money -= this.autoclickercost;
 			this.autoclickers++;
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
-			this.autoclickercost += Math.round(this.autoclickercost * 1.05);
+			this.autoclickercost += Math.round(this.autoclickercost * 0.25);
 			document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(this.autoclickercost);
 		}
 	}
