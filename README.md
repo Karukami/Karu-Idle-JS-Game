@@ -1,7 +1,9 @@
 # Simple-Idle-JS-game
+
 This is a browser game, made using HTML, CSS and JavaScript.
----
+
 How to play:
+
 1.Download/clone the game.
 2.Open jsexternal.html file in your web browser (So far only Opera has been tested).
 3.As you can see, there is a money counter and 4 big buttons:
