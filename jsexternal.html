@@ -8,21 +8,29 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 		<noscript>Sorry, your browser does not support JavaScript!</noscript>
 	</head>
-	<body>
-		<p id="paragraph">Hello! This is a clicker/idle web game</p>
-		<div id="clockcontainer"></div>
-		<h4 id="moneycounter">$0</h4>
-		<p id="autoclickerscounter">Autoclickers: 0</p>
-		<p id="autoclickerprice">Current autoclicker cost: $10</p>
-		<button type="button" class="btn btn-primary" onclick="player.MakeMoney()">Make money</button>
-		<button type="button" class="btn btn-info" onclick="player.AddAutoClicker()">Buy AutoClicker</button>
-		<br><br>
-		<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
-		<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
-		<br><br>
-		<small>Created by Karukami</small><br>
-		<small>Now supporting Git!</small>
 
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col"></div>
+				<div id="maincol" class="col-6">
+					<h3>Simple Idle JS game</h3>					
+					<div id="clockcontainer"></div>
+					<h4 id="moneycounter">$0</h4>
+					<p id="autoclickerscounter">Autoclickers: 0</p>
+					<p id="autoclickerprice">Current autoclicker cost: $10</p>
+					<button type="button" class="btn btn-primary" onclick="player.MakeMoney()">Make money</button>
+					<button type="button" class="btn btn-info" onclick="player.AddAutoClicker()">Buy AutoClicker</button>
+					<br><br>
+					<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
+					<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
+					<br><br>
+					<small>Created by Karukami</small><br>
+					<small>Now supporting Git!</small>
+				</div>
+				<div class="col"></div>
+			</div>
+		</div>
 
 		<!-- JAVASCRIPT IMPORTS -->
 		<script src="js/objetos/Player.js"></script>
