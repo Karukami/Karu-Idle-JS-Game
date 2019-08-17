@@ -26,7 +26,8 @@ function SaveGame() {
 	  if (result.value) {
 	    Swal.fire(
 	      'Saved!',
-	      'Your game has been saved.',
+	      'Your game has been saved. [Money: $' + player.money + 
+	      " - Autoclickers: " + player.autoclickers + "]",
 	      'success'
 	    )
 	   	var savefile = JSON.stringify(player);
@@ -38,7 +39,8 @@ function SaveGame() {
 /*-----------*/
 /* Load Game */
 /*-----------*/
-//Loads a localStorage JSON with player data.
+//First, asks the player if they're sure to load, since it can make them lose progress.
+//After confirmation, loads a localStorage JSON with player data.
 function LoadGame() {
 	var loadedfile = localStorage.getItem("SimpleIdleJSGame_savefile");
 	var loadedplayer = JSON.parse(loadedfile);
