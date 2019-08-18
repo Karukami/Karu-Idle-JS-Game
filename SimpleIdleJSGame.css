@@ -44,7 +44,7 @@ body {
 
 #maincol {
 	background-color: rgba(255,255,255,0.7);
-	border-radius : 15px;
+	border-radius: 15px;
 	margin-top: 15px;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -59,3 +59,27 @@ body {
 	background-color: rgba(0,0,0,0.1);
 	border-radius: 15px;
 }
+
+#avatardiv {
+	height: 160px;
+	background-color: rgba(255,255,255,0.7);
+	border-radius: 15px;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
+
+	#avatarimg {
+		margin-top: 20px;
+	}
+
+	#avatarimgpng {
+		box-shadow: -1px 0px 2px rgba(200, 100, 190, 1),
+					0px 1px 2px rgba(200, 100, 190, 1),
+					1px 0px 2px rgba(200, 100, 190, 1),
+					0px -1px 2px rgba(200, 100, 190, 1);
+	}
