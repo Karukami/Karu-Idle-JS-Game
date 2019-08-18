@@ -26,7 +26,7 @@ function SaveGame() {
 	  if (result.value) {
 	    Swal.fire(
 	      'Saved!',
-	      'Your game has been saved. [Money: $' + player.money + 
+	      'Your game has been saved. [Money: $' + Math.round(player.money) + 
 	      " - Autoclickers: " + player.autoclickers + "]",
 	      'success'
 	    )
@@ -47,7 +47,7 @@ function LoadGame() {
 	Swal.fire({
 	  title: 'Are you sure?',
 	  text: "Loading game: "
-	  		+ "Money: $" + loadedplayer.money + 
+	  		+ "Money: $" + Math.round(loadedplayer.money) + 
 	  		" - Autoclickers: " + loadedplayer.autoclickers,
 	  type: 'warning',
 	  showCancelButton: true,

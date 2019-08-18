@@ -2,14 +2,60 @@
 /* Simple Idle JS Game CSS */
 /*-------------------------*/
 body {
-	background-color: rgba(0,0,0,1);
+	background-image: url("assets/bg.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0px 90px;
+	background-color: #000000;
 	color: rgba(255,255,255,1);
 	text-align: center;
 }
 
+#header {
+	background-image: linear-gradient(-60deg, white, purple);
+	padding: 0px;
+}
+
+	#headericon {
+		text-align: left;
+		border-radius: 30px;
+	}
+
+	#headertext {
+		text-align: right;
+		font-size: 45;
+		font-family: monospace;
+		margin-top: 4px;
+		text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+	}
+
+#navbar {
+	height: 35px;
+	background-image: linear-gradient(#eeeeee, white, #cccccc);
+}
+	#clockcontainer {
+		margin-top:4px;
+		text-align: right;
+		color: black;
+	}
+
 #maincol {
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.7);
 	border-radius : 15px;
+	margin-top: 15px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
+
+#divbotones {
+	padding:10px;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 15px;
 }
