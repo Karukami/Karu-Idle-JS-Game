@@ -7,6 +7,7 @@ function Player(){
 	this.money = 0;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
+	this.activeavatar = 1;
 
 	/*------------*/
 	/* Make Money */
@@ -43,5 +44,32 @@ function Player(){
 	this.AutoClickerMakeMoney = function() {
 		this.money += this.autoclickers * 0.1;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+	}
+
+	this.NextAvatar = function() {
+		if (this.activeavatar == 1) {
+			this.activeavatar = 2;
+		}
+		this.UpdateAvatar();
+	}
+
+	this.PreviousAvatar = function() {
+		if (this.activeavatar == 2) {
+			this.activeavatar = 1;
+		}
+		this.UpdateAvatar();
+	}
+
+	this.UpdateAvatar = function() {
+		switch(this.activeavatar) {
+			case 1:
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar1big.png");
+				document.getElementById("avatarname").innerHTML = ". + Karu + .";
+				break;
+
+			case 2:
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar2big.png");
+				document.getElementById("avatarname").innerHTML = ". + Kazzy + .";
+		}
 	}
 }
