@@ -53,7 +53,7 @@ body {
 /*-------------*/
 #maincol {
 	background-color: rgba(255,255,255,0.7);
-	border-radius: 15px;
+	border-radius: 5px;
 	margin-top: 15px;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -64,6 +64,8 @@ body {
 }
 
 	#divbotones {
+		margin-right: 15px;
+		margin-left: 15px;
 		padding:10px;
 		background-color: rgba(0,0,0,0.1);
 		border-radius: 15px;
@@ -75,10 +77,10 @@ body {
 #avatardiv {
 	height: 155px;
 	background-color: rgba(255,255,255,0.7);
-	border-radius: 15px;
+	border-radius: 5px;
 	margin-top: 15px;
 	margin-left: 5px;
-	margin-right: 5px;
+	margin-right: 0px;
 	text-shadow: -1px 0px 2px #222222, 
 		 		 0px 1px 2px #222222, 
 		 		 1px 0px 2px #222222, 
@@ -94,4 +96,24 @@ body {
 					0px 1px 2px rgba(200, 100, 190, 1),
 					1px 0px 2px rgba(200, 100, 190, 1),
 					0px -1px 2px rgba(200, 100, 190, 1);
+	}
+
+/*---------*/
+/* Console */
+/*---------*/
+#consolediv {
+	height: 138px;
+	padding: 5px;
+	margin-top: 10px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.7);
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
+
+	#console {
+		transform: translate(0px, -9px);
+		resize: none;
 	}

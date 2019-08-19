@@ -4,6 +4,7 @@
 //This object simbolizes the user, it has money, autoclickers and autoclicker cost variables.
 //These variables are modified when loading a savefile.
 function Player(){
+	this.name = "Player";
 	this.money = 0;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
@@ -32,6 +33,8 @@ function Player(){
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
 			this.autoclickercost += Math.round(this.autoclickercost * 0.15);
 			document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(this.autoclickercost);
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" just bought an autoclicker!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
 

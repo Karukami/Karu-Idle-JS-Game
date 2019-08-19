@@ -46,21 +46,28 @@
 						</div>
 					</div>
 				</div>
-				<div id="maincol" class="col-6">
-					<h3>Your money:</h3>					
-					<h4 id="moneycounter">$0</h4>
-					<p id="autoclickerscounter">Autoclickers: 0</p>
-					<p id="autoclickerprice">Current autoclicker cost: $10</p>
-					<div id="divbotones">
-						<button type="button" class="btn btn-primary" onclick="player.MakeMoney()">Make money</button>
-						<button type="button" class="btn btn-info" onclick="player.AddAutoClicker()">Buy AutoClicker</button>
-						<br><br>
-						<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
-						<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
+				<!-- main div -->
+				<div class="col-6">
+					<div id="maincol">
+						<h3>Your money:</h3>					
+						<h4 id="moneycounter">$0</h4>
+						<p id="autoclickerscounter">Autoclickers: 0</p>
+						<p id="autoclickerprice">Current autoclicker cost: $10</p>
+						<div id="divbotones">
+							<button type="button" class="btn btn-primary" onclick="player.MakeMoney()">Make money</button>
+							<button type="button" class="btn btn-info" onclick="player.AddAutoClicker()">Buy AutoClicker</button>
+							<br><br>
+							<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
+							<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
+						</div>
+						<br>
+						<small>Created by Karukami</small><br>
+						<small>Now supporting Git!</small>
 					</div>
-					<br>
-					<small>Created by Karukami</small><br>
-					<small>Now supporting Git!</small>
+					<div id="consolediv">
+						<p>Console</p>
+						<textarea class="form-control form-control-sm" id="console" cols="30" rows="4" disabled>>>Welcome to Karu's Idle JS Game!&#013;</textarea>
+					</div>
 				</div>
 				<div class="col"></div>
 			</div>
