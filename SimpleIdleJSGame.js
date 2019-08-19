@@ -68,6 +68,10 @@ function LoadGame() {
 		player.autoclickers = loadedplayer.autoclickers;
 		player.autoclickercost = loadedplayer.autoclickercost;
 		player.activeavatar = loadedplayer.activeavatar;
+		player.gameStarted = loadedplayer.gameStarted;
+		player.totalClicksEver = loadedplayer.totalClicksEver;
+		player.totalMoneyEver = loadedplayer.totalMoneyEver;
+		player.totalMoneySpent = loadedplayer.totalMoneySpent;
 		player.UpdateAvatar();
 		document.getElementById("namediv").innerHTML = "Player: " + loadedplayer.name;
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
