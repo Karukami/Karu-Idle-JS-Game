@@ -50,12 +50,18 @@ function Player(){
 		if (this.activeavatar == 1) {
 			this.activeavatar = 2;
 		}
+		else if (this.activeavatar == 2) {
+			this.activeavatar = 1;
+		}
 		this.UpdateAvatar();
 	}
 
 	this.PreviousAvatar = function() {
 		if (this.activeavatar == 2) {
 			this.activeavatar = 1;
+		}
+		else if (this.activeavatar == 1) {
+			this.activeavatar = 2;
 		}
 		this.UpdateAvatar();
 	}
