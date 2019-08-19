@@ -18,6 +18,9 @@ function Player(){
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
 	this.hasAvatar3unlocked = false;
+	//Achievement booleans will be optimized in the future
+	this.unlockedAchievement = [false, false, false, false, false,
+								false, false, false, false, false];
 
 	/*------------*/
 	/* Make Money */
@@ -188,6 +191,9 @@ function Player(){
 		}
 	}
 
+	/*-------------------*/
+	/* Unlock New Avatar */
+	/*-------------------*/
 	this.unlockNewAvatar = function() {
 		if (this.money >= this.newavatarcost && this.hasAvatar3unlocked == false) {
 			this.money -= this.newavatarcost;
@@ -200,11 +206,49 @@ function Player(){
 		}
 	}
 
-	this.showAchievement01 = function() {
-		document.getElementById("achievement_01txt").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1");
+	/*--------------------------*/
+	/* Achievement Descriptions */
+	/*--------------------------*/
+	this.showAchievement0 = function() {
+		if (this.unlockedAchievement[0] == true) {
+			document.getElementById("achievement_0txt").innerHTML = "<h6>Clicked 100 times!</h6><small> \"You're doing some workout! <br> Keep burning those calories\"</small>";
+		}
+		else if (this.unlockedAchievement[0] == false) {
+			document.getElementById("achievement_0txt").innerHTML = "<h6>Clicked 100 times!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_0txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
 	}
 
-	this.hideAchievement01 = function() {
-		document.getElementById("achievement_01txt").setAttribute("style", "display: none");
+	this.hideAchievement0 = function() {
+		document.getElementById("achievement_0txt").setAttribute("style", "display: none");
 	}
+
+	this.showAchievement1 = function() {
+		if (this.unlockedAchievement[1] == true) {
+			document.getElementById("achievement_1txt").innerHTML = "<h6>Clicked 1000 times!</h6><small>\"Bro, look how much I can click!<br>Your clicks have come a long way...\"</small>";
+		}
+		else if (this.unlockedAchievement[1] == false) {
+			document.getElementById("achievement_1txt").innerHTML = "<h6>Clicked 1000 times!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_1txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement1 = function() {
+		document.getElementById("achievement_1txt").setAttribute("style", "display: none");
+	}
+
+	this.showAchievement2 = function() {
+		if (this.unlockedAchievement[2] == true) {
+			document.getElementById("achievement_2txt").innerHTML = "<h6>Got 50 Autoclickers!</h6><small>\"Automatization is the future!<br>click... click... click...\"</small>";
+		}
+		else if (this.unlockedAchievement[2] == false) {
+			document.getElementById("achievement_2txt").innerHTML = "<h6>Got 50 Autoclickers!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_2txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement2 = function() {
+		document.getElementById("achievement_2txt").setAttribute("style", "display: none");
+	}
+
 }
