@@ -167,7 +167,28 @@ body {
 /* Shop */
 /*------*/
 #shopdiv {
-	height: 350px;
+	height: 235px;
+	padding: 5px;
+	margin-top: 15px;
+	margin-right: 10px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.7);
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
+	#shopbuttons {
+		margin-top: 8px;
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+
+/*----------------*/
+/* Music & Themes */
+/*----------------*/
+#themesdiv {
+	height: 100px;
 	padding: 5px;
 	margin-top: 15px;
 	margin-right: 10px;

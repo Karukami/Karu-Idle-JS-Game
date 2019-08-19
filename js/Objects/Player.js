@@ -35,7 +35,7 @@ function Player(){
 	//If the player has enough money, adds +1 to the autoclicker count, and you pay for it.
 	//Else, nothing happens when you click the button.
 	this.AddAutoClicker = function() {
-		if (this.money >= this.autoclickercost) {
+		if (this.money >= Math.round(this.autoclickercost)) {
 			this.money -= this.autoclickercost;
 			this.totalMoneySpent += this.autoclickercost;
 			this.autoclickers++;
