@@ -32,6 +32,8 @@ function SaveGame() {
 	    )
 	   	var savefile = JSON.stringify(player);
 		localStorage.setItem("SimpleIdleJSGame_savefile", savefile);
+		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+player.name+" saved the game.&#013;");
+		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 	  }
 	})
 }
@@ -66,6 +68,8 @@ function LoadGame() {
 		player.autoclickercost = loadedplayer.autoclickercost;
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
 		document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(loadedplayer.autoclickercost);
+		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+player.name+" loaded the game.&#013;");
+		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 	  }
 	})
 }

@@ -49,6 +49,9 @@ function Player(){
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
 	}
 
+	/*-------------*/
+	/* Next Avatar */
+	/*-------------*/
 	this.NextAvatar = function() {
 		if (this.activeavatar == 1) {
 			this.activeavatar = 2;
@@ -59,6 +62,9 @@ function Player(){
 		this.UpdateAvatar();
 	}
 
+	/*-----------------*/
+	/* Previous Avatar */
+	/*-----------------*/
 	this.PreviousAvatar = function() {
 		if (this.activeavatar == 2) {
 			this.activeavatar = 1;
@@ -69,6 +75,9 @@ function Player(){
 		this.UpdateAvatar();
 	}
 
+	/*---------------*/
+	/* Update Avatar */
+	/*---------------*/
 	this.UpdateAvatar = function() {
 		switch(this.activeavatar) {
 			case 1:
