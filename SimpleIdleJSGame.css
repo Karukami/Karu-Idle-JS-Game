@@ -71,6 +71,25 @@ body {
 		border-radius: 15px;
 	}
 
+/*------*/
+/* Name */
+/*------*/
+#namediv {
+	background-color: rgba(255,255,255,0.7);
+	margin-top: 15px;
+	margin-left: 5px;
+	border-radius: 5px;
+	text-align: center;
+	text-shadow: -1px 0px 2px #222222, 
+	 		 0px 1px 2px #222222, 
+	 		 1px 0px 2px #222222, 
+	 		 0px -1px 2px #222222;
+}
+
+#ChangeNameModal {
+	color: #333333;
+}
+
 /*--------*/
 /* Avatar */
 /*--------*/

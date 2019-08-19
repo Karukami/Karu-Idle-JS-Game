@@ -90,4 +90,15 @@ function Player(){
 				document.getElementById("avatarname").innerHTML = ". + Kazzy + .";
 		}
 	}
+
+	this.openNameChangeModal = function() {
+		$('#ChangeNameModal').modal('show');
+	}
+
+	this.setName = function() {
+		this.name = document.getElementById("newnameinput").value;
+		document.getElementById("namediv").innerHTML = "Player: " + this.name;
+		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Changed your name to: "+this.name+"&#013;");
+		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+	}
 }
