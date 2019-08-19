@@ -134,11 +134,13 @@ body {
 	 		 0px -1px 2px #222222;
 }
 	#statnames {
+		font-size: 13px;
 		text-align: left;
 		margin-top: 10px;
 	}
 
 	#statvalues {
+		font-size: 13px;
 		text-align: right;
 		margin-top: 10px;
 	}
@@ -147,7 +149,7 @@ body {
 /* Console */
 /*---------*/
 #consolediv {
-	height: 138px;
+	height: 158px;
 	padding: 5px;
 	margin-top: 10px;
 	border-radius: 5px;

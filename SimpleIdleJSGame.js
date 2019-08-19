@@ -79,7 +79,7 @@ function LoadGame() {
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
 		document.getElementById("Shop_btn_autoclicker").innerHTML = "Buy Autoclicker ($" + Math.round(loadedplayer.autoclickercost) + ")";
 		document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + loadedplayer.clickpower + ")";
-			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + loadedplayer.clickpowercost + ")";
+		document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + loadedplayer.clickpowercost + ")";
 		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+player.name+" loaded the game.&#013;");
 		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 	  }

@@ -16,6 +16,7 @@ function Player(){
 	this.totalMoneySpent = 0;
 	this.clickpower = 1;
 	this.clickpowercost = 100;
+	this.hasAvatar3unlocked = false;
 
 	/*------------*/
 	/* Make Money */
@@ -67,11 +68,23 @@ function Player(){
 	/* Next Avatar */
 	/*-------------*/
 	this.NextAvatar = function() {
-		if (this.activeavatar == 1) {
-			this.activeavatar = 2;
-		}
-		else if (this.activeavatar == 2) {
-			this.activeavatar = 1;
+		switch (this.activeavatar) {
+			case 1:
+				this.activeavatar = 2;
+				break;
+
+			case 2:
+				if (this.hasAvatar3unlocked == true) {
+					this.activeavatar = 3;
+				}
+				else {
+					this.activeavatar = 1;
+				}
+				break;
+
+			case 3:
+				this.activeavatar = 1;
+				break;
 		}
 		this.UpdateAvatar();
 	}
@@ -80,11 +93,23 @@ function Player(){
 	/* Previous Avatar */
 	/*-----------------*/
 	this.PreviousAvatar = function() {
-		if (this.activeavatar == 2) {
-			this.activeavatar = 1;
-		}
-		else if (this.activeavatar == 1) {
-			this.activeavatar = 2;
+		switch (this.activeavatar) {
+			case 1:
+				if (this.hasAvatar3unlocked == true) {
+					this.activeavatar = 3;
+				}
+				else {
+					this.activeavatar = 2;
+				}
+				break;
+
+			case 2:
+				this.activeavatar = 1;
+				break;
+
+			case 3:
+				this.activeavatar = 2;
+				break;
 		}
 		this.UpdateAvatar();
 	}
@@ -102,13 +127,25 @@ function Player(){
 			case 2:
 				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar2big.png");
 				document.getElementById("avatarname").innerHTML = ". + Kazzy + .";
+				break;
+
+			case 3:
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar3big.png");
+				document.getElementById("avatarname").innerHTML = ". + Robin + .";
+				break;
 		}
 	}
 
+	/*------------------------*/
+	/* Open Name Change Modal */
+	/*------------------------*/
 	this.openNameChangeModal = function() {
 		$('#ChangeNameModal').modal('show');
 	}
 
+	/*----------*/
+	/* Set Name */
+	/*----------*/
 	this.setName = function() {
 		this.name = document.getElementById("newnameinput").value;
 		document.getElementById("namediv").innerHTML = "Player: " + this.name;
@@ -116,12 +153,19 @@ function Player(){
 		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 	}
 
+	/*--------------*/
+	/* Update Stats */
+	/*--------------*/
 	this.updateStats = function() {
 		document.getElementById("statvalues").innerHTML =
-		this.gameStarted + "<br>" + this.totalClicksEver + "<br>" + this.autoclickers +
-		"<br>" + Math.round(this.totalMoneyEver) + "<br>" + this.totalMoneySpent;
+		this.gameStarted + "<br>" + this.clickpower + "<br>" +this.totalClicksEver 
+		+ "<br>" + this.autoclickers + "<br>" + Math.round(this.totalMoneyEver) 
+		+ "<br>" + this.totalMoneySpent;
 	}
 
+	/*----------------------*/
+	/* Increase Click Power */
+	/*----------------------*/
 	this.increaseClickPower = function() {
 		if (this.money >= Math.round(this.clickpowercost)) {
 			this.money -= this.clickpowercost;
@@ -130,6 +174,15 @@ function Player(){
 			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
 			this.updateStats();
+		}
+	}
+
+	this.unlockNewAvatar = function() {
+		if (this.money >= 5000 && this.hasAvatar3unlocked == false) {
+			this.money -= 5000;
+			this.hasAvatar3unlocked = true;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
 }

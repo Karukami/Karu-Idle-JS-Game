@@ -58,6 +58,7 @@
 							<div class="row">
 								<div class="col" id="statnames">
 								Game started<br>
+								Click power<br>
 								Total clicks<br>
 								Autoclickers<br>
 								Total money<br>
@@ -95,7 +96,7 @@
 					</div>
 					<div id="consolediv">
 						<p>- Console -</p>
-						<textarea class="form-control form-control-sm" id="console" cols="30" rows="4" disabled>>>Welcome to Karu's Idle JS Game!&#013;</textarea>
+						<textarea class="form-control form-control-sm" id="console" cols="30" rows="5" disabled>>>Welcome to Karu's Idle JS Game!&#013;</textarea>
 					</div>
 				</div>
 				<div class="col">
@@ -111,7 +112,7 @@
 								<div class="col" id="shopbuttons">
 									<button id="Shop_btn_autoclicker" class="btn btn-info btn-block btn-sm" onclick="player.AddAutoClicker()">Buy Autoclicker ($10)</button>
 									<button id="Shop_btn_clickpower" class="btn btn-info btn-block btn-sm" onclick="player.increaseClickPower()">Upgrade Click Power ($100)</button>
-									<button class="btn btn-info btn-block btn-sm">Get New Avatar</button>
+									<button id="Shop_btn_newavatar" class="btn btn-info btn-block btn-sm" onclick="player.unlockNewAvatar()">Get New Avatar ($5000)</button>
 									<button class="btn btn-info btn-block btn-sm">Avatar Boutique</button>
 									<button class="btn btn-info btn-block btn-sm">Music & Themes</button>
 								</div>
