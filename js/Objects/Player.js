@@ -40,7 +40,7 @@ function Player(){
 			this.totalMoneySpent += this.autoclickercost;
 			this.autoclickers++;
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
-			this.autoclickercost += Math.round(this.autoclickercost * 0.15);
+			this.autoclickercost += Math.round(this.autoclickercost * 0.10);
 			document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(this.autoclickercost);
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" just bought an autoclicker!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
