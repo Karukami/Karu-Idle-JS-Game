@@ -84,11 +84,8 @@
 						<h3>Your money:</h3>					
 						<h4 id="moneycounter">$0</h4>
 						<p id="autoclickerscounter">Autoclickers: 0</p>
-						<p id="autoclickerprice">Current autoclicker cost: $10</p>
 						<div id="divbotones">
-							<button type="button" class="btn btn-primary" onclick="player.MakeMoney()">Make money</button>
-							<button type="button" class="btn btn-info" onclick="player.AddAutoClicker()">Buy AutoClicker</button>
-							<br><br>
+							<button type="button" id="btn_makemoney" class="btn btn-primary btn-block" onclick="player.MakeMoney()" style="margin: 0px 0px 10px 0px;">Make money! ($1)</button>
 							<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
 							<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
 						</div>
@@ -112,8 +109,8 @@
 							<br>
 							<div class="row">
 								<div class="col" id="shopbuttons">
-									<button class="btn btn-info btn-block btn-sm" onclick="player.AddAutoClicker()">Buy Autoclicker</button>
-									<button class="btn btn-info btn-block btn-sm">Upgrade Click Power</button>
+									<button id="Shop_btn_autoclicker" class="btn btn-info btn-block btn-sm" onclick="player.AddAutoClicker()">Buy Autoclicker ($10)</button>
+									<button id="Shop_btn_clickpower" class="btn btn-info btn-block btn-sm" onclick="player.increaseClickPower()">Upgrade Click Power ($100)</button>
 									<button class="btn btn-info btn-block btn-sm">Get New Avatar</button>
 									<button class="btn btn-info btn-block btn-sm">Avatar Boutique</button>
 									<button class="btn btn-info btn-block btn-sm">Music & Themes</button>

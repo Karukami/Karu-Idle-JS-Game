@@ -14,6 +14,8 @@ function Player(){
 	this.totalClicksEver = 0;
 	this.totalMoneyEver = 0;
 	this.totalMoneySpent = 0;
+	this.clickpower = 1;
+	this.clickpowercost = 100;
 
 	/*------------*/
 	/* Make Money */
@@ -21,8 +23,8 @@ function Player(){
 	//This function is called when clicking the Make Money Button.
 	//It just adds +1 to the money counter and updates the html element.
 	this.MakeMoney = function() {
-		this.money++;
-		this.totalMoneyEver++;
+		this.money += this.clickpower;
+		this.totalMoneyEver += this.clickpower;
 		this.totalClicksEver++;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
 		this.updateStats();
@@ -41,7 +43,7 @@ function Player(){
 			this.autoclickers++;
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
 			this.autoclickercost += Math.round(this.autoclickercost * 0.10);
-			document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(this.autoclickercost);
+			document.getElementById("Shop_btn_autoclicker").innerHTML = "Buy Autoclicker ($" + Math.round(this.autoclickercost) + ")";
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" just bought an autoclicker!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			this.updateStats();
@@ -118,5 +120,16 @@ function Player(){
 		document.getElementById("statvalues").innerHTML =
 		this.gameStarted + "<br>" + this.totalClicksEver + "<br>" + this.autoclickers +
 		"<br>" + Math.round(this.totalMoneyEver) + "<br>" + this.totalMoneySpent;
+	}
+
+	this.increaseClickPower = function() {
+		if (this.money >= Math.round(this.clickpowercost)) {
+			this.money -= this.clickpowercost;
+			this.clickpower++;
+			this.clickpowercost += this.clickpowercost*9;
+			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
+			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
+			this.updateStats();
+		}
 	}
 }
