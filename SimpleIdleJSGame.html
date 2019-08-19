@@ -35,19 +35,42 @@
 
 			<!-- Main game window -->
 			<div class="row">
-				<!-- Avatar -->
 				<div class="col">
 					<div class="row">
+						<!-- Name -->
 						<div class="col" id="namediv" onclick="player.openNameChangeModal()" style="cursor: pointer">
 							Player: Choose Name
 						</div>
 					</div>
+					<!-- Avatar -->
 					<div class="row" id="avatardiv">
 						<div class="col" id="avatarimg">
 							<img class="img-fluid" src="assets/avatar/select_arrow_left.png" alt="Previous" style="cursor: pointer" onclick="player.PreviousAvatar()">
 							<img class="img-fluid rounded" src="assets/avatar/avatar1big.png" alt="Avatar" id="currentavatar">	
 							<img class="img-fluid" src="assets/avatar/select_arrow_right.png" alt="Next" style="cursor: pointer" onclick="player.NextAvatar()">
 							<p id="avatarname">. + Karu + .</p>
+						</div>
+					</div>
+					<!-- Stats -->
+					<div class="row">
+						<div class="col" id="statsdiv">
+							---- Stats ----
+							<div class="row">
+								<div class="col" id="statnames">
+								Game started<br>
+								Total clicks<br>
+								Autoclickers<br>
+								Total money<br>
+								Money spent
+								</div>
+								<div class="col-5" id="statvalues">
+									0<br>
+									0<br>
+									0<br>
+									0<br>
+									0
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

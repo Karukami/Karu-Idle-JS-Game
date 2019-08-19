@@ -9,6 +9,11 @@ function Player(){
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
+	this.gameStartedDate = new Date();
+	this.gameStarted = this.gameStartedDate.toLocaleDateString();
+	this.totalClicksEver = 0;
+	this.totalMoneyEver = 0;
+	this.totalMoneySpent = 0;
 
 	/*------------*/
 	/* Make Money */
@@ -17,7 +22,10 @@ function Player(){
 	//It just adds +1 to the money counter and updates the html element.
 	this.MakeMoney = function() {
 		this.money++;
+		this.totalMoneyEver++;
+		this.totalClicksEver++;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+		this.updateStats();
 	}
 
 	/*-----------------*/
@@ -29,12 +37,14 @@ function Player(){
 	this.AddAutoClicker = function() {
 		if (this.money >= this.autoclickercost) {
 			this.money -= this.autoclickercost;
+			this.totalMoneySpent += this.autoclickercost;
 			this.autoclickers++;
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
 			this.autoclickercost += Math.round(this.autoclickercost * 0.15);
 			document.getElementById("autoclickerprice").innerHTML = "Current autoclicker cost: $" + Math.round(this.autoclickercost);
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" just bought an autoclicker!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.updateStats();
 		}
 	}
 
@@ -46,7 +56,9 @@ function Player(){
 	//Then it updates the html money counter, rounding the number so it doesn't appear float.
 	this.AutoClickerMakeMoney = function() {
 		this.money += this.autoclickers * 0.1;
+		this.totalMoneyEver += this.autoclickers * 0.1;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+		this.updateStats();
 	}
 
 	/*-------------*/
@@ -100,5 +112,11 @@ function Player(){
 		document.getElementById("namediv").innerHTML = "Player: " + this.name;
 		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Changed your name to: "+this.name+"&#013;");
 		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+	}
+
+	this.updateStats = function() {
+		document.getElementById("statvalues").innerHTML =
+		this.gameStarted + "<br>" + this.totalClicksEver + "<br>" + this.autoclickers +
+		"<br>" + Math.round(this.totalMoneyEver) + "<br>" + this.totalMoneySpent;
 	}
 }
