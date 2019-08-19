@@ -199,4 +199,12 @@ function Player(){
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
+
+	this.showAchievement01 = function() {
+		document.getElementById("achievement_01txt").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1");
+	}
+
+	this.hideAchievement01 = function() {
+		document.getElementById("achievement_01txt").setAttribute("style", "display: none");
+	}
 }
