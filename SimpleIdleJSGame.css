@@ -162,3 +162,35 @@ body {
 		transform: translate(0px, -9px);
 		resize: none;
 	}
+
+/*------*/
+/* Shop */
+/*------*/
+#shopdiv {
+	height: 350px;
+	padding: 5px;
+	margin-top: 15px;
+	margin-right: 10px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.7);
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
+
+/*-----*/
+/* Ads */
+/*-----*/
+#adsdiv {
+	height: 152px;
+	padding: 5px;
+	margin-top: 15px;
+	margin-right: 10px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.7);
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
