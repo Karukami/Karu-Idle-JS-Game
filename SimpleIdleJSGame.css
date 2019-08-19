@@ -11,6 +11,9 @@ body {
 	text-align: center;
 }
 
+/*--------*/
+/* Header */
+/*--------*/
 #header {
 	background-image: linear-gradient(-60deg, white, rgba(180, 80, 170, 1));
 	padding: 0px;
@@ -32,6 +35,9 @@ body {
 					 0px -1px 2px #222222;
 	}
 
+/*--------*/
+/* Navbar */
+/*--------*/
 #navbar {
 	height: 35px;
 	background-image: linear-gradient(#eeeeee, white, #cccccc);
@@ -42,6 +48,9 @@ body {
 		color: black;
 	}
 
+/*-------------*/
+/* Main window */
+/*-------------*/
 #maincol {
 	background-color: rgba(255,255,255,0.7);
 	border-radius: 15px;
@@ -54,12 +63,15 @@ body {
 		 		 0px -1px 2px #222222;
 }
 
-#divbotones {
-	padding:10px;
-	background-color: rgba(0,0,0,0.1);
-	border-radius: 15px;
-}
+	#divbotones {
+		padding:10px;
+		background-color: rgba(0,0,0,0.1);
+		border-radius: 15px;
+	}
 
+/*--------*/
+/* Avatar */
+/*--------*/
 #avatardiv {
 	height: 155px;
 	background-color: rgba(255,255,255,0.7);
