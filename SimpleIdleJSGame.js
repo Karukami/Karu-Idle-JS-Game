@@ -74,12 +74,15 @@ function LoadGame() {
 		player.totalMoneySpent = loadedplayer.totalMoneySpent;
 		player.clickpower = loadedplayer.clickpower;
 		player.clickpowercost = loadedplayer.clickpowercost;
+		player.newavatarcost = loadedplayer.newavatarcost;
+		player.hasAvatar3unlocked = loadedplayer.hasAvatar3unlocked;
 		player.UpdateAvatar();
 		document.getElementById("namediv").innerHTML = "Player: " + loadedplayer.name;
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
 		document.getElementById("Shop_btn_autoclicker").innerHTML = "Buy Autoclicker ($" + Math.round(loadedplayer.autoclickercost) + ")";
 		document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + loadedplayer.clickpower + ")";
 		document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + loadedplayer.clickpowercost + ")";
+		document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + loadedplayer.newavatarcost + ")";
 		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+player.name+" loaded the game.&#013;");
 		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 	  }

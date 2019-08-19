@@ -113,7 +113,7 @@
 									<button id="Shop_btn_autoclicker" class="btn btn-info btn-block btn-sm" onclick="player.AddAutoClicker()">Buy Autoclicker ($10)</button>
 									<button id="Shop_btn_clickpower" class="btn btn-info btn-block btn-sm" onclick="player.increaseClickPower()">Upgrade Click Power ($100)</button>
 									<button id="Shop_btn_newavatar" class="btn btn-info btn-block btn-sm" onclick="player.unlockNewAvatar()">Get New Avatar ($5000)</button>
-									<button class="btn btn-info btn-block btn-sm">Avatar Boutique</button>
+									<button id="Shop_btn_boutique" class="btn btn-info btn-block btn-sm" onclick="player.openBoutiqueModal()">Avatar Boutique</button>
 									<button class="btn btn-info btn-block btn-sm">Music & Themes</button>
 								</div>
 							</div>
@@ -136,7 +136,6 @@
 		</div>
 
 		<!-- MODAL FOR NAME CHANGE -->
-
 		<div class="modal fade" id="ChangeNameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
@@ -153,6 +152,26 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="player.setName()">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- MODAL FOR AVATAR BOUTIQUE -->
+		<div class="modal fade" id="BoutiqueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">Avatar Boutique</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	Coming soon!
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">Exit</button>
 		      </div>
 		    </div>
 		  </div>

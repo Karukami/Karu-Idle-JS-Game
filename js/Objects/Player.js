@@ -16,6 +16,7 @@ function Player(){
 	this.totalMoneySpent = 0;
 	this.clickpower = 1;
 	this.clickpowercost = 100;
+	this.newavatarcost = 5000;
 	this.hasAvatar3unlocked = false;
 
 	/*------------*/
@@ -143,6 +144,13 @@ function Player(){
 		$('#ChangeNameModal').modal('show');
 	}
 
+	/*---------------------*/
+	/* Open Boutique Modal */
+	/*---------------------*/
+	this.openBoutiqueModal = function() {
+		$('#BoutiqueModal').modal('show');
+	}
+
 	/*----------*/
 	/* Set Name */
 	/*----------*/
@@ -169,18 +177,24 @@ function Player(){
 	this.increaseClickPower = function() {
 		if (this.money >= Math.round(this.clickpowercost)) {
 			this.money -= this.clickpowercost;
+			this.totalMoneySpent += this.clickpowercost;
 			this.clickpower++;
 			this.clickpowercost += this.clickpowercost*9;
 			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
 			this.updateStats();
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" increased his/her click power!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
 
 	this.unlockNewAvatar = function() {
-		if (this.money >= 5000 && this.hasAvatar3unlocked == false) {
-			this.money -= 5000;
+		if (this.money >= this.newavatarcost && this.hasAvatar3unlocked == false) {
+			this.money -= this.newavatarcost;
+			this.totalMoneySpent += this.newavatarcost;
 			this.hasAvatar3unlocked = true;
+			this.newavatarcost += Math.round(this.newavatarcost*9);
+			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
