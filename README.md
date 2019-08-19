@@ -18,6 +18,7 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*Autoclickers: You can buy these to make the game play itself!
 	*LocalStorage integration: you can save and load your game!
 	*Avatars: These give the game more personality! (More functionality in the near future!)
+	*Console: A handy console which shows your last actions!
 
 ---
 Idle Games can be a bit addicting, it's weird how just watching a number grow makes
