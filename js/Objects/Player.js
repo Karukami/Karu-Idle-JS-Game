@@ -18,7 +18,6 @@ function Player(){
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
 	this.hasAvatar3unlocked = false;
-	//Achievement booleans will be optimized in the future
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false, false, false, false];
 
@@ -253,7 +252,7 @@ function Player(){
 
 	this.showAchievement3 = function() {
 		if (this.unlockedAchievement[3] == true) {
-			document.getElementById("achievement_3txt").innerHTML = "<h6>Got 100 Autoclickers!</h6><small>\"Look at those numbers go up!<br>I wonder if your clicks still do justice...\"</small>";
+			document.getElementById("achievement_3txt").innerHTML = "<h6>Got 100 Autoclickers!</h6><small>\"Look at those numbers go up!<br>These guys sure are doing their job!\"</small>";
 		}
 		else if (this.unlockedAchievement[3] == false) {
 			document.getElementById("achievement_3txt").innerHTML = "<h6>Got 100 Autoclickers!</h6><small>[Locked]</small>";	
