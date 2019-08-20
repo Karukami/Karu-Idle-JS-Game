@@ -251,4 +251,18 @@ function Player(){
 		document.getElementById("achievement_2txt").setAttribute("style", "display: none");
 	}
 
+	this.showAchievement3 = function() {
+		if (this.unlockedAchievement[3] == true) {
+			document.getElementById("achievement_3txt").innerHTML = "<h6>Got 100 Autoclickers!</h6><small>\"Look at those numbers go up!<br>I wonder if your clicks still do justice...\"</small>";
+		}
+		else if (this.unlockedAchievement[3] == false) {
+			document.getElementById("achievement_3txt").innerHTML = "<h6>Got 100 Autoclickers!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_3txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement3 = function() {
+		document.getElementById("achievement_3txt").setAttribute("style", "display: none");
+	}
+
 }
