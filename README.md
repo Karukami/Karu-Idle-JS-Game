@@ -6,12 +6,7 @@ This is a browser game, made using HTML, CSS and JavaScript.
 
 1.Download/clone the game.  
 2.Open jsexternal.html file in your web browser (So far only Opera has been tested).  
-3.As you can see, there is a money counter and 4 big buttons:
-
-	*Make Money: Adds $1 to the money counter.
-	*Buy Autoclicker: Buys an autoclicker (about 1 automatic click per second).
-	*Save Game: Creates a localstorage file with your saved money and autoclicker counters.
-	*Load Game: Looks for a saved game and loads it.
+3.Have fun! :)
 ---
 ## Functionalities:
 
@@ -19,8 +14,11 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*LocalStorage integration: you can save and load your game!
 	*Avatars: These give the game more personality! (More functionality in the near future!)
 	*Console: A handy console which shows your last actions!
-	*Stats & Achievements: View your progress!
+	*Stats: View your progress!
+	*Achievements: Goals for you to achieve!
 	*Shop: Spend your generated money!
+	*Themes: [Coming soon...]
+	*Music: [Coming soon...]
 
 ---
 Idle Games can be a bit addicting, it's weird how just watching a number grow makes
