@@ -18,8 +18,8 @@ function Player(){
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
 	this.hasAvatar3unlocked = false;
-	this.unlockedAchievement = [true, true, true, true, true,
-								true, true];
+	this.unlockedAchievement = [false, false, false, false, false,
+								false, false];
 
 	/*------------*/
 	/* Make Money */
@@ -65,6 +65,7 @@ function Player(){
 		this.totalMoneyEver += this.autoclickers * 0.1;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
 		this.updateStats();
+		this.updateAchievements();
 	}
 
 	/*-------------*/
@@ -208,8 +209,48 @@ function Player(){
 	/*--------------------------*/
 	/* Achievement Descriptions */
 	/*--------------------------*/
-	this.updateAchievements =function() {
-		//TO DO
+	this.updateAchievements = function() {
+		//Achievement 0: Click 100 times!
+		if (this.totalClicksEver >= 100) {
+			this.unlockedAchievement[0] = true;
+			document.getElementById("achievement_0").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 1: Click 1000 times!
+		if (this.totalClicksEver >= 1000) {
+			this.unlockedAchievement[1] = true;
+			document.getElementById("achievement_1").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 2: Got 50 Autoclickers!
+		if (this.autoclickers >= 50) {
+			this.unlockedAchievement[2] = true;
+			document.getElementById("achievement_2").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 3: Got 100 Autoclickers!
+		if (this.autoclickers >= 100) {
+			this.unlockedAchievement[3] = true;
+			document.getElementById("achievement_3").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 4: Double Power!
+		if (this.clickpower >= 2) {
+			this.unlockedAchievement[4] = true;
+			document.getElementById("achievement_4").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 5: Giga Power!
+		if (this.clickpower >= 5) {
+			this.unlockedAchievement[5] = true;
+			document.getElementById("achievement_5").setAttribute("style", "filter: none;")
+		}
+
+		//Achievement 5: Meow!
+		if (this.hasAvatar3unlocked == true) {
+			this.unlockedAchievement[6] = true;
+			document.getElementById("achievement_6").setAttribute("style", "filter: none;")
+		}
 	}
 
 	this.showAchievement0 = function() {

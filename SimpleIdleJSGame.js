@@ -76,6 +76,7 @@ function LoadGame() {
 		player.clickpowercost = loadedplayer.clickpowercost;
 		player.newavatarcost = loadedplayer.newavatarcost;
 		player.hasAvatar3unlocked = loadedplayer.hasAvatar3unlocked;
+		player.unlockedAchievements = loadedplayer.unlockedAchievements;
 		player.UpdateAvatar();
 		document.getElementById("namediv").innerHTML = "Player: " + loadedplayer.name;
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
