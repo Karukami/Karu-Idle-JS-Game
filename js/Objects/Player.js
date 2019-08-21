@@ -17,7 +17,7 @@ function Player(){
 	this.clickpower = 1;
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
-	this.unlockedAvatar = [true, false, false];
+	this.unlockedAvatar = [true, false, false, false, false];
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false];
 
@@ -95,8 +95,25 @@ function Player(){
 				break;
 
 			case 3:
-				this.activeavatar = 1;
+				if (this.unlockedAvatar[3] == true) {
+					this.activeavatar = 4;
+				}
+				else {
+					this.activeavatar = 1;
+				}
 				break;
+
+			case 4:
+				if (this.unlockedAvatar[4] == true) {
+					this.activeavatar = 5;
+				}
+				else {
+					this.activeavatar = 1;
+				}
+				break;
+
+			case 5:
+				this.activeavatar = 1;
 		}
 		this.UpdateAvatar();
 	}
@@ -122,6 +139,13 @@ function Player(){
 			case 3:
 				this.activeavatar = 2;
 				break;
+
+			case 4:
+				this.activeavatar = 3;
+				break;
+
+			case 5:
+				this.activeavatar = 4;
 		}
 		this.UpdateAvatar();
 	}
@@ -132,17 +156,27 @@ function Player(){
 	this.UpdateAvatar = function() {
 		switch(this.activeavatar) {
 			case 1:
-				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar1big.png");
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar0big.png");
 				document.getElementById("avatarname").innerHTML = ". + Karu + .";
 				break;
 
 			case 2:
-				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar2big.png");
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar1big.png");
 				document.getElementById("avatarname").innerHTML = ". + Kazzy + .";
 				break;
 
 			case 3:
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar2big.png");
+				document.getElementById("avatarname").innerHTML = ". + Ricardo + .";
+				break;
+
+			case 4:
 				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar3big.png");
+				document.getElementById("avatarname").innerHTML = ". + Dummy + .";
+				break;
+
+			case 5:
+				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar4big.png");
 				document.getElementById("avatarname").innerHTML = ". + Robin + .";
 				break;
 		}
@@ -158,7 +192,7 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[1] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar2.png");
+				document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Kazzy!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -168,11 +202,33 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[2] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar3.png");
+				document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar2.png");
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Ricardo!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+
+			}
+			else if (this.unlockedAvatar[3] == false) {
+				this.money -= this.newavatarcost;
+				this.totalMoneySpent += this.newavatarcost;
+				this.unlockedAvatar[3] = true;
+				this.newavatarcost += Math.round(this.newavatarcost*2);
+				document.getElementById("boutique_unlocked_3").setAttribute("src", "assets/avatar/avatar3.png");
+				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Dummy!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+
+			else if (this.unlockedAvatar[4] == false) {
+				this.money -= this.newavatarcost;
+				this.totalMoneySpent += this.newavatarcost;
+				this.unlockedAvatar[4] = true;
+				this.newavatarcost += Math.round(this.newavatarcost*2);
+				document.getElementById("boutique_unlocked_4").setAttribute("src", "assets/avatar/avatar4.png");
+				document.getElementById("Shop_btn_newavatar").innerHTML = "Got all avatars!";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
-				document.getElementById("Shop_btn_newavatar").disabled = true;
+				document.getElementById("Shop_btn_newavatar").disabled = true;			
 			}
 		}
 		else {
@@ -223,7 +279,7 @@ function Player(){
 			this.money -= this.clickpowercost;
 			this.totalMoneySpent += this.clickpowercost;
 			this.clickpower++;
-			this.clickpowercost += this.clickpowercost*5;
+			this.clickpowercost += this.clickpowercost*3;
 			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
 			this.updateStats();
@@ -277,7 +333,7 @@ function Player(){
 		}
 
 		//Achievement 5: Meow!
-		if (this.unlockedAvatar[1] == true && this.unlockedAchievement[6] == false) {
+		if (this.unlockedAvatar[4] == true && this.unlockedAchievement[6] == false) {
 			this.unlockedAchievement[6] = true;
 			document.getElementById("achievement_6").setAttribute("style", "filter: none;")
 		}
