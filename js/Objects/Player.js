@@ -182,7 +182,7 @@ function Player(){
 			this.money -= this.clickpowercost;
 			this.totalMoneySpent += this.clickpowercost;
 			this.clickpower++;
-			this.clickpowercost += this.clickpowercost*9;
+			this.clickpowercost += this.clickpowercost*5;
 			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
 			this.updateStats();
