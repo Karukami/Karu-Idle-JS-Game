@@ -5,7 +5,7 @@
 //These variables are modified when loading a savefile.
 function Player(){
 	this.name = "Player";
-	this.money = 999999999999;
+	this.money = 0;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
