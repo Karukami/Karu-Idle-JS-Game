@@ -18,8 +18,8 @@ function Player(){
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
 	this.hasAvatar3unlocked = false;
-	this.unlockedAchievement = [false, false, false, false, false,
-								false, false, false, false, false];
+	this.unlockedAchievement = [true, true, true, true, true,
+								true, true];
 
 	/*------------*/
 	/* Make Money */
@@ -208,6 +208,10 @@ function Player(){
 	/*--------------------------*/
 	/* Achievement Descriptions */
 	/*--------------------------*/
+	this.updateAchievements =function() {
+		//TO DO
+	}
+
 	this.showAchievement0 = function() {
 		if (this.unlockedAchievement[0] == true) {
 			document.getElementById("achievement_0txt").innerHTML = "<h6>Clicked 100 times!</h6><small> \"You're doing some workout! <br> Keep burning those calories\"</small>";
@@ -262,6 +266,48 @@ function Player(){
 
 	this.hideAchievement3 = function() {
 		document.getElementById("achievement_3txt").setAttribute("style", "display: none");
+	}
+
+	this.showAchievement4 = function() {
+		if (this.unlockedAchievement[4] == true) {
+			document.getElementById("achievement_4txt").innerHTML = "<h6>Double Power!</h6><small>\"You've got double the power now,<br>be careful not to destroy the world!\"</small>";
+		}
+		else if (this.unlockedAchievement[4] == false) {
+			document.getElementById("achievement_4txt").innerHTML = "<h6>Double Power!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_4txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement4 = function() {
+		document.getElementById("achievement_4txt").setAttribute("style", "display: none");
+	}
+
+	this.showAchievement5 = function() {
+		if (this.unlockedAchievement[5] == true) {
+			document.getElementById("achievement_5txt").innerHTML = "<h6>Giga Power!</h6><small>\"With five times the power,<br>the universe is at risk!\"</small>";
+		}
+		else if (this.unlockedAchievement[5] == false) {
+			document.getElementById("achievement_5txt").innerHTML = "<h6>Giga Power!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_5txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement5 = function() {
+		document.getElementById("achievement_5txt").setAttribute("style", "display: none");
+	}
+
+	this.showAchievement6 = function() {
+		if (this.unlockedAchievement[6] == true) {
+			document.getElementById("achievement_6txt").innerHTML = "<h6>Meow!</h6><small>\"Bought the new avatar: Robin!<br>*Purr*\"</small>";
+		}
+		else if (this.unlockedAchievement[6] == false) {
+			document.getElementById("achievement_6txt").innerHTML = "<h6>Meow!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_6txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement6 = function() {
+		document.getElementById("achievement_6txt").setAttribute("style", "display: none");
 	}
 
 }
