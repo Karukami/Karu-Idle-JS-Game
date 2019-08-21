@@ -7,6 +7,7 @@ ShowDateTime();
 var clockinterval = setInterval(ShowDateTime, 1000);
 var player = new Player();
 var autoclickertimer = setInterval("player.AutoClickerMakeMoney()", 100);
+var updateAchievementstime = setInterval("player.updateAchievements()", 2000);
 
 /*-----------*/
 /* Save Game */

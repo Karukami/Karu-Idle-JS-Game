@@ -52,6 +52,10 @@ function Player(){
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			this.updateStats();
 		}
+		else {
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You don't have enough money!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		}
 	}
 
 	/*------------------------*/
@@ -65,7 +69,6 @@ function Player(){
 		this.totalMoneyEver += this.autoclickers * 0.1;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
 		this.updateStats();
-		this.updateAchievements();
 	}
 
 	/*-------------*/
@@ -74,7 +77,12 @@ function Player(){
 	this.NextAvatar = function() {
 		switch (this.activeavatar) {
 			case 1:
-				this.activeavatar = 2;
+				if (this.unlockedAvatar[1] == true) {
+					this.activeavatar = 2;
+				}
+				else {
+					this.activeavatar = 1;
+				}
 				break;
 
 			case 2:
@@ -102,7 +110,7 @@ function Player(){
 				if (this.unlockedAvatar[2] == true) {
 					this.activeavatar = 3;
 				}
-				else {
+				else if (this.unlockedAvatar[3] == true) {
 					this.activeavatar = 2;
 				}
 				break;
@@ -137,6 +145,39 @@ function Player(){
 				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar3big.png");
 				document.getElementById("avatarname").innerHTML = ". + Robin + .";
 				break;
+		}
+	}
+
+	/*-------------------*/
+	/* Unlock New Avatar */
+	/*-------------------*/
+	this.unlockNewAvatar = function() {
+		if (this.money >= this.newavatarcost) {
+			if (this.unlockedAvatar[1] == false) {
+				this.money -= this.newavatarcost;
+				this.totalMoneySpent += this.newavatarcost;
+				this.unlockedAvatar[1] = true;
+				this.newavatarcost += Math.round(this.newavatarcost*2);
+				document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar2.png");
+				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Kazzy!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+			else if (this.unlockedAvatar[2] == false) {
+				this.money -= this.newavatarcost;
+				this.totalMoneySpent += this.newavatarcost;
+				this.unlockedAvatar[2] = true;
+				this.newavatarcost += Math.round(this.newavatarcost*2);
+				document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar3.png");
+				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+				document.getElementById("Shop_btn_newavatar").disabled = true;
+			}
+		}
+		else {
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You don't have enough money!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
 
@@ -189,19 +230,8 @@ function Player(){
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" increased his/her click power!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
-	}
-
-	/*-------------------*/
-	/* Unlock New Avatar */
-	/*-------------------*/
-	this.unlockNewAvatar = function() {
-		if (this.money >= this.newavatarcost && this.unlockedAvatar[2] == false) {
-			this.money -= this.newavatarcost;
-			this.totalMoneySpent += this.newavatarcost;
-			this.unlockedAvatar[2] = true;
-			this.newavatarcost += Math.round(this.newavatarcost*9);
-			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
-			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
+		else {
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You don't have enough money!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
