@@ -17,6 +17,7 @@ function Player(){
 	this.clickpower = 1;
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
+	this.karugems = 0;
 	this.unlockedAvatar = [true, false, false, false, false];
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false];
@@ -310,6 +311,7 @@ function Player(){
 		this.gameStarted + "<br>" + this.clickpower + "<br>" +this.totalClicksEver 
 		+ "<br>" + this.autoclickers + "<br>" + Math.round(this.totalMoneyEver) 
 		+ "<br>" + this.totalMoneySpent;
+		document.getElementById("rubycounter").innerHTML = "Karu Gems: " + this.karugems;
 	}
 
 	/*----------------------*/

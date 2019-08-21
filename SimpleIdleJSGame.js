@@ -78,6 +78,7 @@ function LoadGame() {
 		player.newavatarcost = loadedplayer.newavatarcost;
 		player.unlockedAvatar = loadedplayer.unlockedAvatar;
 		player.unlockedAchievement = loadedplayer.unlockedAchievement;
+		player.karugems = loadedplayer.karugems;
 		player.UpdateAvatar();
 		document.getElementById("namediv").innerHTML = "Player: " + loadedplayer.name;
 		document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + loadedplayer.autoclickers;
