@@ -4,9 +4,9 @@ This is a browser game, made using HTML, CSS and JavaScript.
 
 ## How to play:
 
-1.Download/clone the game.  
-2.Open jsexternal.html file in your web browser (So far only Opera has been tested).  
-3.Have fun! :)
+	1.Download/clone the game.  
+	2.Open jsexternal.html file in your web browser (So far only Opera has been tested).  
+	3.Have fun! :)
 ---
 ## Functionalities:
 
