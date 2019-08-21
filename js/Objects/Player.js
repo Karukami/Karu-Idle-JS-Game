@@ -193,6 +193,8 @@ function Player(){
 				this.unlockedAvatar[1] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
 				document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
+				document.getElementById("skill_description_1").innerHTML = "Kazzy's Hacker attack <br><small>&nbsp&nbspTotal Autoclickers x3</small>";
+				document.getElementById("btn_skill_1").disabled = false;
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Kazzy!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -203,6 +205,8 @@ function Player(){
 				this.unlockedAvatar[2] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
 				document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar2.png");
+				document.getElementById("skill_description_2").innerHTML = "Ricardo's Sexy Dance <br><small>&nbsp&nbspClick power x5</small>";
+				document.getElementById("btn_skill_2").disabled = false;
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Ricardo!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -214,6 +218,8 @@ function Player(){
 				this.unlockedAvatar[3] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
 				document.getElementById("boutique_unlocked_3").setAttribute("src", "assets/avatar/avatar3.png");
+				document.getElementById("skill_description_3").innerHTML = "Spinal's Ultra Combo <br><small>&nbsp&nbsp+15 Autoclickers, +15 Clicker power</small>";
+				document.getElementById("btn_skill_3").disabled = false;
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Dummy!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -225,6 +231,8 @@ function Player(){
 				this.unlockedAvatar[4] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
 				document.getElementById("boutique_unlocked_4").setAttribute("src", "assets/avatar/avatar4.png");
+				document.getElementById("skill_description_4").innerHTML = "Robin's Ultimate Meow <br><small>&nbsp&nbspWalks on the keyboard</small>";
+				document.getElementById("btn_skill_4").disabled = false;
 				document.getElementById("Shop_btn_newavatar").innerHTML = "Got all avatars!";
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -255,7 +263,7 @@ function Player(){
 				break;
 
 			case 4:
-				document.getElementById("avatarDescription").innerHTML = "<h6>Dummy</h6><small>\"Placeholder, I ran out of ideas so don't mind this one for some time.\"</small>";
+				document.getElementById("avatarDescription").innerHTML = "<h6>Spinal</h6><small>\"Used to be a hollywood actor, now he just likes to hang around at Karu's and play Mario Party \"</small>";
 				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
 				break;
 
