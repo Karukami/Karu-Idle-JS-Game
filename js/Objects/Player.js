@@ -237,6 +237,39 @@ function Player(){
 		}
 	}
 
+	this.showAvatarDescription = function() {
+		switch (this.activeavatar) {
+			case 1:
+				document.getElementById("avatarDescription").innerHTML = "<h6>Karu</h6><small>\"The developer, just a guy who likes spaghetti.\"</small>";
+				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
+				break;
+
+			case 2:
+				document.getElementById("avatarDescription").innerHTML = "<h6>Kazzy</h6><small>\"Loves cats and a good night of watching anime.\"</small>";
+				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
+				break;
+
+			case 3:
+				document.getElementById("avatarDescription").innerHTML = "<h6>Ricardo</h6><small>\"Internet celebrity, likes to dance and pose.\"</small>";
+				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
+				break;
+
+			case 4:
+				document.getElementById("avatarDescription").innerHTML = "<h6>Dummy</h6><small>\"Placeholder, I ran out of ideas so don't mind this one for some time.\"</small>";
+				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
+				break;
+
+			case 5:
+				document.getElementById("avatarDescription").innerHTML = "<h6>Robin</h6><small>\"Kazzy's fluffy cat, naps 24/7 and likes walking over the keyboard.\"</small>";
+				document.getElementById("avatarDescription").setAttribute("style", "display: yes; background-color: rgba(255,255,255,0.9); border-radius: 5px; position: absolute; z-index: 2; padding: 5px; transform: translate(0px, -70px)");
+				break;
+		}
+	}
+
+	this.hideAvatarDescription = function() {
+		document.getElementById("avatarDescription").setAttribute("style", "display: none");
+	}
+
 	/*------------------------*/
 	/* Open Name Change Modal */
 	/*------------------------*/
