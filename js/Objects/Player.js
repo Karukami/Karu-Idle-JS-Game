@@ -17,7 +17,7 @@ function Player(){
 	this.clickpower = 1;
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
-	this.hasAvatar3unlocked = false;
+	this.unlockedAvatar = [true, false, false];
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false];
 
@@ -78,7 +78,7 @@ function Player(){
 				break;
 
 			case 2:
-				if (this.hasAvatar3unlocked == true) {
+				if (this.unlockedAvatar[2] == true) {
 					this.activeavatar = 3;
 				}
 				else {
@@ -99,7 +99,7 @@ function Player(){
 	this.PreviousAvatar = function() {
 		switch (this.activeavatar) {
 			case 1:
-				if (this.hasAvatar3unlocked == true) {
+				if (this.unlockedAvatar[2] == true) {
 					this.activeavatar = 3;
 				}
 				else {
@@ -195,10 +195,10 @@ function Player(){
 	/* Unlock New Avatar */
 	/*-------------------*/
 	this.unlockNewAvatar = function() {
-		if (this.money >= this.newavatarcost && this.hasAvatar3unlocked == false) {
+		if (this.money >= this.newavatarcost && this.unlockedAvatar[2] == false) {
 			this.money -= this.newavatarcost;
 			this.totalMoneySpent += this.newavatarcost;
-			this.hasAvatar3unlocked = true;
+			this.unlockedAvatar[2] = true;
 			this.newavatarcost += Math.round(this.newavatarcost*9);
 			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
@@ -211,43 +211,43 @@ function Player(){
 	/*--------------------------*/
 	this.updateAchievements = function() {
 		//Achievement 0: Click 100 times!
-		if (this.totalClicksEver >= 100) {
+		if (this.totalClicksEver >= 100 && this.unlockedAchievement[0] == false) {
 			this.unlockedAchievement[0] = true;
 			document.getElementById("achievement_0").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 1: Click 1000 times!
-		if (this.totalClicksEver >= 1000) {
+		if (this.totalClicksEver >= 1000 && this.unlockedAchievement[1] == false) {
 			this.unlockedAchievement[1] = true;
 			document.getElementById("achievement_1").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 2: Got 50 Autoclickers!
-		if (this.autoclickers >= 50) {
+		if (this.autoclickers >= 50 && this.unlockedAchievement[2] == false) {
 			this.unlockedAchievement[2] = true;
 			document.getElementById("achievement_2").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 3: Got 100 Autoclickers!
-		if (this.autoclickers >= 100) {
+		if (this.autoclickers >= 100 && this.unlockedAchievement[3] == false) {
 			this.unlockedAchievement[3] = true;
 			document.getElementById("achievement_3").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 4: Double Power!
-		if (this.clickpower >= 2) {
+		if (this.clickpower >= 2 && this.unlockedAchievement[4] == false) {
 			this.unlockedAchievement[4] = true;
 			document.getElementById("achievement_4").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 5: Giga Power!
-		if (this.clickpower >= 5) {
+		if (this.clickpower >= 5 && this.unlockedAchievement[5] == false) {
 			this.unlockedAchievement[5] = true;
 			document.getElementById("achievement_5").setAttribute("style", "filter: none;")
 		}
 
 		//Achievement 5: Meow!
-		if (this.hasAvatar3unlocked == true) {
+		if (this.unlockedAvatar[1] == true && this.unlockedAchievement[6] == false) {
 			this.unlockedAchievement[6] = true;
 			document.getElementById("achievement_6").setAttribute("style", "filter: none;")
 		}

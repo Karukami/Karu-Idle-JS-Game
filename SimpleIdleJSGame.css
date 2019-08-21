@@ -101,6 +101,7 @@ body {
 	height: 155px;
 	background-color: rgba(255,255,255,0.7);
 	border-radius: 5px;
+	padding-top: 3px;
 	margin-top: 15px;
 	margin-left: 5px;
 	margin-right: 0px;
@@ -111,7 +112,11 @@ body {
 }
 
 	#avatarimg {
-		margin-top: 20px;
+		margin-top: 0px;
+	}
+
+	#avatarselector {
+		transform: translate(0px, -5px);
 	}
 
 	#currentavatar {
