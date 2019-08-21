@@ -5,7 +5,7 @@
 //These variables are modified when loading a savefile.
 function Player(){
 	this.name = "Player";
-	this.money = 0;
+	this.money = 999999999999;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
@@ -172,7 +172,7 @@ function Player(){
 
 			case 4:
 				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar3big.png");
-				document.getElementById("avatarname").innerHTML = ". + Dummy + .";
+				document.getElementById("avatarname").innerHTML = ". + Spinal + .";
 				break;
 
 			case 5:

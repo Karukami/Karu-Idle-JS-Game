@@ -233,3 +233,14 @@ body {
 	margin-top: 20px;
 	text-align: center;
 }
+
+#rubycounterdiv {
+	background-color: rgba(0,0,255,0.4);
+	color: white;
+	padding-top: 5px;
+	border-radius: 15px;
+	text-shadow: -1px 0px 2px #222222, 
+		 		 0px 1px 2px #222222, 
+		 		 1px 0px 2px #222222, 
+		 		 0px -1px 2px #222222;
+}
