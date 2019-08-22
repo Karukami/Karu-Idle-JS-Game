@@ -183,6 +183,9 @@ function Player(){
 		}
 	}
 
+	/*-----------------*/
+	/* Update Boutique */
+	/*-----------------*/
 	this.updateBoutique = function() {
 		if (this.unlockedAvatar[1]) {
 			document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
@@ -274,6 +277,9 @@ function Player(){
 		}
 	}
 
+	/*-------------------------*/
+	/* Show Avatar Description */
+	/*-------------------------*/
 	this.showAvatarDescription = function() {
 		switch (this.activeavatar) {
 			case 1:
@@ -303,6 +309,9 @@ function Player(){
 		}
 	}
 
+	/*-------------------------*/
+	/* Hide Avatar Description */
+	/*-------------------------*/
 	this.hideAvatarDescription = function() {
 		document.getElementById("avatarDescription").setAttribute("style", "display: none");
 	}
