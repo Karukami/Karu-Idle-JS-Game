@@ -383,9 +383,13 @@ function Player(){
 				this.updateBoutique();
 				this.autoclickers += 100;
 				this.clickpower += 100;
+				this.unlockedMusic[1] = true;
+				document.getElementById("btn_music_1").setAttribute("class", "btn btn-success btn-sm");
+				document.getElementById("btn_music_1").innerHTML = "Unlocked";
 				document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 				this.updateStats();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: ROBIN'S ULTIMATE MEOW!!!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You have unlocked a new song!!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
 		}
