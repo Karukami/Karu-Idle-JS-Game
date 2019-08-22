@@ -17,8 +17,9 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*Stats: View your progress!
 	*Achievements: Goals for you to achieve!
 	*Shop: Spend your generated money!
+	*Avatar Boutique: Spend your hard earned Karu Gems on powerful avatar skills!
 	*Themes: [Coming soon...]
-	*Music: [Coming soon...]
+	*Music: The game has background music, and unlockable songs too!
 
 ---
 Idle Games can be a bit addicting, it's weird how just watching a number grow makes
