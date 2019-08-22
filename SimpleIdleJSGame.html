@@ -154,7 +154,7 @@
 						<h4 id="moneycounter">$0</h4>
 						<p id="autoclickerscounter">Autoclickers: 0</p>
 						<div id="divbotones">
-							<button type="button" id="btn_makemoney" class="btn btn-primary btn-block" onclick="player.MakeMoney()" style="margin: 0px 0px 10px 0px;">Make money! ($1)</button>
+							<button type="button" id="btn_makemoney" class="btn btn-primary btn-block" onclick="player.MakeMoney()" style="margin: 0px 0px 10px 0px;">Make Money! ($1)</button>
 							<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
 							<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
 						</div>
@@ -280,8 +280,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_0" class="btn btn-primary btn-sm">
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">5
+		      							<button id="btn_skill_0" class="btn btn-primary btn-sm" onclick="player.activateSkill(0)" disabled>
+		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">1
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -293,8 +293,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_1" class="btn btn-primary btn-sm" disabled>
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">10
+		      							<button id="btn_skill_1" class="btn btn-primary btn-sm" onclick="player.activateSkill(1)" disabled>
+		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">3
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -306,8 +306,8 @@
 		      							</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_2" class="btn btn-primary btn-sm" disabled>
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">20
+		      							<button id="btn_skill_2" class="btn btn-primary btn-sm" onclick="player.activateSkill(2)" disabled>
+		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">5
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -319,8 +319,8 @@
 		      							</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_3" class="btn btn-primary btn-sm" disabled>
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">30
+		      							<button id="btn_skill_3" class="btn btn-primary btn-sm" onclick="player.activateSkill(3)" disabled>
+		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">7
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -332,8 +332,8 @@
 		      							</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_4" class="btn btn-primary btn-sm" disabled>
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">50
+		      							<button id="btn_skill_4" class="btn btn-primary btn-sm" onclick="player.activateSkill(4)" disabled>
+		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">10
 		      							</button>
 		      						</td>
 		      					</tr>

@@ -5,7 +5,7 @@
 //These variables are modified when loading a savefile.
 function Player(){
 	this.name = "Player";
-	this.money = 999999999999999;
+	this.money = 0;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
@@ -18,9 +18,15 @@ function Player(){
 	this.clickpowercost = 100;
 	this.newavatarcost = 5000;
 	this.karugems = 0;
+	//Karugems are obtained in several ways:
+	//1.Every 10 minutes
+	//2.For every achievement (7 in total)
+	//3.Every 1000 clicks (up to 10000 clicks, 10 in total)
+	//So 17 by playing and one every 10 minutes.
 	this.unlockedAvatar = [true, false, false, false, false];
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false];
+	this.unlockedSkill = [false, false, false, false, false];
 
 	/*------------*/
 	/* Make Money */
@@ -32,7 +38,36 @@ function Player(){
 		this.totalMoneyEver += this.clickpower;
 		this.totalClicksEver++;
 		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+		this.addKaruGemsByClicking();
 		this.updateStats();
+	}
+
+	this.generateKaruGem = function() {
+		document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+		document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		this.karugems++;
+		this.updateBoutique();
+	}
+
+	/*--------------------------*/
+	/* Add KaruGems by Clicking */
+	/*--------------------------*/
+	this.addKaruGemsByClicking = function() {
+		if (this.totalClicksEver == 1000
+			|| this.totalClicksEver == 2000
+			|| this.totalClicksEver == 3000
+			|| this.totalClicksEver == 4000
+			|| this.totalClicksEver == 5000
+			|| this.totalClicksEver == 6000
+			|| this.totalClicksEver == 7000
+			|| this.totalClicksEver == 8000
+			|| this.totalClicksEver == 9000
+			|| this.totalClicksEver == 10000) {
+			this.karugems++;
+			this.updateBoutique();
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		}
 	}
 
 	/*-----------------*/
@@ -48,7 +83,7 @@ function Player(){
 			this.autoclickers++;
 			document.getElementById("autoclickerscounter").innerHTML = "Autoclickers: " + this.autoclickers;
 			this.autoclickercost += Math.round(this.autoclickercost * 0.10);
-			document.getElementById("Shop_btn_autoclicker").innerHTML = "Buy Autoclicker ($" + Math.round(this.autoclickercost) + ")";
+			this.updateShop();
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" just bought an autoclicker!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			this.updateStats();
@@ -66,10 +101,18 @@ function Player(){
 	//Adds an ammount to the money counter based on the number of autoclickers the player has.
 	//Then it updates the html money counter, rounding the number so it doesn't appear float.
 	this.AutoClickerMakeMoney = function() {
-		this.money += this.autoclickers * 0.1;
-		this.totalMoneyEver += this.autoclickers * 0.1;
-		document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
-		this.updateStats();
+		if (this.unlockedSkill[0] == false) {
+			this.money += this.autoclickers * 0.1;
+			this.totalMoneyEver += this.autoclickers * 0.1;
+			document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+			this.updateStats();
+		}
+		if (this.unlockedSkill[0] == true) {
+			this.money += this.autoclickers * 0.2;
+			this.totalMoneyEver += this.autoclickers * 0.2;
+			document.getElementById("moneycounter").innerHTML = "$" + Math.round(this.money);
+			this.updateStats();
+		}		
 	}
 
 	/*-------------*/
@@ -190,28 +233,130 @@ function Player(){
 		if (this.unlockedAvatar[1]) {
 			document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
 			document.getElementById("skill_description_1").innerHTML = "Kazzy's Hacker attack <br><small>&nbsp&nbspTotal Autoclickers x3</small>";
-			document.getElementById("btn_skill_1").disabled = false;
 			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 		}
 		if (this.unlockedAvatar[2]) {
 			document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar2.png");
 			document.getElementById("skill_description_2").innerHTML = "Ricardo's Sexy Dance <br><small>&nbsp&nbspClick power x5</small>";
-			document.getElementById("btn_skill_2").disabled = false;
 			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 		}
 		if (this.unlockedAvatar[3]) {
 			document.getElementById("boutique_unlocked_3").setAttribute("src", "assets/avatar/avatar3.png");
-			document.getElementById("skill_description_3").innerHTML = "Spinal's Ultra Combo <br><small>&nbsp&nbsp+15 Autoclickers, +15 Clicker power</small>";
-			document.getElementById("btn_skill_3").disabled = false;
+			document.getElementById("skill_description_3").innerHTML = "Spinal's Ultra Combo <br><small>&nbsp&nbsp+15 Autoclickers, +15 Click power</small>";
 			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
 		}
 		if (this.unlockedAvatar[4]) {
 			document.getElementById("boutique_unlocked_4").setAttribute("src", "assets/avatar/avatar4.png");
 			document.getElementById("skill_description_4").innerHTML = "Robin's Ultimate Meow <br><small>&nbsp&nbspWalks on the keyboard</small>";
-			document.getElementById("btn_skill_4").disabled = false;
 			document.getElementById("Shop_btn_newavatar").innerHTML = "Got all avatars!";
 			document.getElementById("Shop_btn_newavatar").disabled = true;
 		}
+
+		//These activate and deactivate skill purchase buttons
+		if (this.karugems >= 1 && this.unlockedSkill[0] == false) {
+			document.getElementById("btn_skill_0").disabled = false;
+		}
+		else if (this.unlockedSkill[0] == true) {
+			document.getElementById("btn_skill_0").innerHTML = "Activated!";
+			document.getElementById("btn_skill_0").disabled = true;
+		}
+		if (this.karugems >= 3 && this.unlockedAvatar[1] == true && this.unlockedSkill[1] == false) {
+			document.getElementById("btn_skill_1").disabled = false;
+		}
+		else if (this.unlockedSkill[1] == true) {
+			document.getElementById("btn_skill_1").innerHTML = "Activated!";
+			document.getElementById("btn_skill_1").disabled = true;
+		}
+		if (this.karugems >= 5 && this.unlockedAvatar[2] == true && this.unlockedSkill[2] == false) {
+			document.getElementById("btn_skill_2").disabled = false;
+		}
+		else if (this.unlockedSkill[2] == true) {
+			document.getElementById("btn_skill_2").innerHTML = "Activated!";
+			document.getElementById("btn_skill_2").disabled = true;
+		}
+		if (this.karugems >= 7 && this.unlockedAvatar[3] == true && this.unlockedSkill[3] == false) {
+			document.getElementById("btn_skill_3").disabled = false;
+		}
+		else if (this.unlockedSkill[3] == true) {
+			document.getElementById("btn_skill_3").innerHTML = "Activated!";
+			document.getElementById("btn_skill_3").disabled = true;
+		}
+		if (this.karugems >= 10 && this.unlockedAvatar[4] == true && this.unlockedSkill[4] == false) {
+			document.getElementById("btn_skill_4").disabled = false;
+		}
+		else if (this.unlockedSkill[4] == true) {
+			document.getElementById("btn_skill_4").innerHTML = "Activated!";
+			document.getElementById("btn_skill_4").disabled = true;
+		}
+	}
+
+	/*----------------*/
+	/* Activate Skill */
+	/*----------------*/
+	this.activateSkill = function(skillnumber) {
+		if (skillnumber == 0) {
+			if (this.karugems >= 1) {
+				this.karugems -= 1;
+				this.unlockedSkill[0] = true;
+				this.updateBoutique();
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: KARU'S SUGAR RUSH!!!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (skillnumber == 1) {
+			if (this.karugems >= 3) {
+				this.karugems -= 3;
+				this.unlockedSkill[1] = true;
+				this.updateBoutique();
+				this.autoclickers *= 3;
+				this.updateStats();
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: KAZZY'S HACKER ATTACK!!!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (skillnumber == 2) {
+			if (this.karugems >= 5) {
+				this.karugems -= 5;
+				this.unlockedSkill[2] = true;
+				this.updateBoutique();
+				this.clickpower *= 5;
+				this.updateStats();
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: RICARDO'S SEXY DANCE!!!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (skillnumber == 3) {
+			if (this.karugems >= 7) {
+				this.karugems -= 7;
+				this.unlockedSkill[3] = true;
+				this.updateBoutique();
+				this.autoclickers += 15;
+				this.clickpower += 15;
+				this.updateStats();
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: SPINAL'S ULTRA COMBO!!!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (skillnumber == 4) {
+			if (this.karugems >= 10) {
+				this.karugems -= 10;
+				this.unlockedSkill[4] = true;
+				this.updateBoutique();
+				this.autoclickers += 100;
+				this.clickpower += 100;
+				this.updateStats();
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: ROBIN'S ULTIMATE MEOW!!!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+	}
+
+	/*---------------------*/
+	/* Update Shop Buttons */
+	/*---------------------*/
+	this.updateShop = function() {
+		document.getElementById("Shop_btn_autoclicker").innerHTML = "Buy Autoclicker ($" + Math.round(this.autoclickercost) + ")";
+		document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
 	}
 
 	/*-------------------*/
@@ -224,10 +369,7 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[1] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
-				document.getElementById("skill_description_1").innerHTML = "Kazzy's Hacker attack <br><small>&nbsp&nbspTotal Autoclickers x3</small>";
-				document.getElementById("btn_skill_1").disabled = false;
-				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				this.updateBoutique();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Kazzy!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
@@ -236,10 +378,7 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[2] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar2.png");
-				document.getElementById("skill_description_2").innerHTML = "Ricardo's Sexy Dance <br><small>&nbsp&nbspClick power x5</small>";
-				document.getElementById("btn_skill_2").disabled = false;
-				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				this.updateBoutique();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Ricardo!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 
@@ -249,10 +388,7 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[3] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_3").setAttribute("src", "assets/avatar/avatar3.png");
-				document.getElementById("skill_description_3").innerHTML = "Spinal's Ultra Combo <br><small>&nbsp&nbsp+15 Autoclickers, +15 Clicker power</small>";
-				document.getElementById("btn_skill_3").disabled = false;
-				document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+				this.updateBoutique();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Dummy!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
@@ -262,10 +398,7 @@ function Player(){
 				this.totalMoneySpent += this.newavatarcost;
 				this.unlockedAvatar[4] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
-				document.getElementById("boutique_unlocked_4").setAttribute("src", "assets/avatar/avatar4.png");
-				document.getElementById("skill_description_4").innerHTML = "Robin's Ultimate Meow <br><small>&nbsp&nbspWalks on the keyboard</small>";
-				document.getElementById("btn_skill_4").disabled = false;
-				document.getElementById("Shop_btn_newavatar").innerHTML = "Got all avatars!";
+				this.updateBoutique();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Robin!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 				document.getElementById("Shop_btn_newavatar").disabled = true;			
@@ -361,7 +494,7 @@ function Player(){
 			this.clickpower++;
 			this.clickpowercost += this.clickpowercost*3;
 			document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
-			document.getElementById("Shop_btn_clickpower").innerHTML = "Upgrade Click Power ($" + this.clickpowercost + ")";
+			this.updateShop();
 			this.updateStats();
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" increased his/her click power!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -379,43 +512,78 @@ function Player(){
 		//Achievement 0: Click 100 times!
 		if (this.totalClicksEver >= 100 && this.unlockedAchievement[0] == false) {
 			this.unlockedAchievement[0] = true;
-			document.getElementById("achievement_0").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_0").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Click 100 Times!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
 		//Achievement 1: Click 1000 times!
 		if (this.totalClicksEver >= 1000 && this.unlockedAchievement[1] == false) {
 			this.unlockedAchievement[1] = true;
-			document.getElementById("achievement_1").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_1").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Click 1000 Times!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
 		//Achievement 2: Got 50 Autoclickers!
 		if (this.autoclickers >= 50 && this.unlockedAchievement[2] == false) {
 			this.unlockedAchievement[2] = true;
-			document.getElementById("achievement_2").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_2").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Got 50 Autoclickers!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
 		//Achievement 3: Got 100 Autoclickers!
 		if (this.autoclickers >= 100 && this.unlockedAchievement[3] == false) {
 			this.unlockedAchievement[3] = true;
-			document.getElementById("achievement_3").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_3").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Got 100 Autoclickers!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
 		//Achievement 4: Double Power!
 		if (this.clickpower >= 2 && this.unlockedAchievement[4] == false) {
 			this.unlockedAchievement[4] = true;
-			document.getElementById("achievement_4").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_4").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Double Power!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
 		//Achievement 5: Giga Power!
 		if (this.clickpower >= 5 && this.unlockedAchievement[5] == false) {
 			this.unlockedAchievement[5] = true;
-			document.getElementById("achievement_5").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_5").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Giga Power!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
-		//Achievement 5: Meow!
+		//Achievement 6: Meow!
 		if (this.unlockedAvatar[4] == true && this.unlockedAchievement[6] == false) {
 			this.unlockedAchievement[6] = true;
-			document.getElementById("achievement_6").setAttribute("style", "filter: none;")
+			document.getElementById("achievement_6").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Meow!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 	}
 

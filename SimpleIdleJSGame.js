@@ -7,7 +7,9 @@ ShowDateTime();
 var clockinterval = setInterval(ShowDateTime, 1000);
 var player = new Player();
 var autoclickertimer = setInterval("player.AutoClickerMakeMoney()", 100);
-var updateAchievementstime = setInterval("player.updateAchievements()", 2000);
+var updateAchievementsTimer = setInterval("player.updateAchievements()", 2000);
+var updateBoutiqueTimer = setInterval("player.updateBoutique()", 2000);
+var karuGemsGenerationTimer = setInterval("player.generateKaruGem()", 600000);
 
 /*-----------*/
 /* Save Game */
@@ -79,6 +81,7 @@ function LoadGame() {
 		player.unlockedAvatar = loadedplayer.unlockedAvatar;
 		player.unlockedAchievement = loadedplayer.unlockedAchievement;
 		player.karugems = loadedplayer.karugems;
+		player.unlockedSkills = loadedplayer.unlockedSkills;
 		player.UpdateAvatar();
 		player.updateStats();
 		document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + loadedplayer.newavatarcost + ")";
