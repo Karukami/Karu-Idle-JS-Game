@@ -81,7 +81,9 @@ function LoadGame() {
 		player.unlockedAvatar = loadedplayer.unlockedAvatar;
 		player.unlockedAchievement = loadedplayer.unlockedAchievement;
 		player.karugems = loadedplayer.karugems;
-		player.unlockedSkills = loadedplayer.unlockedSkills;
+		player.unlockedSkill = loadedplayer.unlockedSkill;
+		player.updateBoutique();
+		player.updateShop();
 		player.UpdateAvatar();
 		player.updateStats();
 		document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + loadedplayer.newavatarcost + ")";

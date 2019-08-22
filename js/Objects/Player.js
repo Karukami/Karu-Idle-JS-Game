@@ -463,6 +463,13 @@ function Player(){
 		$('#BoutiqueModal').modal('show');
 	}
 
+	/*--------------------------------*/
+	/* Open Music & Themes Shop Modal */
+	/*--------------------------------*/
+	this.openMusicThemeShopModal = function() {
+		$('#MusicThemeModal').modal('show');
+	}
+
 	/*----------*/
 	/* Set Name */
 	/*----------*/
