@@ -5,7 +5,7 @@
 //These variables are modified when loading a savefile.
 function Player(){
 	this.name = "Player";
-	this.money = 0;
+	this.money = 999999999999999;
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
@@ -180,6 +180,34 @@ function Player(){
 				document.getElementById("currentavatar").setAttribute("src", "assets/avatar/avatar4big.png");
 				document.getElementById("avatarname").innerHTML = ". + Robin + .";
 				break;
+		}
+	}
+
+	this.updateBoutique = function() {
+		if (this.unlockedAvatar[1]) {
+			document.getElementById("boutique_unlocked_1").setAttribute("src", "assets/avatar/avatar1.png");
+			document.getElementById("skill_description_1").innerHTML = "Kazzy's Hacker attack <br><small>&nbsp&nbspTotal Autoclickers x3</small>";
+			document.getElementById("btn_skill_1").disabled = false;
+			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+		}
+		if (this.unlockedAvatar[2]) {
+			document.getElementById("boutique_unlocked_2").setAttribute("src", "assets/avatar/avatar2.png");
+			document.getElementById("skill_description_2").innerHTML = "Ricardo's Sexy Dance <br><small>&nbsp&nbspClick power x5</small>";
+			document.getElementById("btn_skill_2").disabled = false;
+			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+		}
+		if (this.unlockedAvatar[3]) {
+			document.getElementById("boutique_unlocked_3").setAttribute("src", "assets/avatar/avatar3.png");
+			document.getElementById("skill_description_3").innerHTML = "Spinal's Ultra Combo <br><small>&nbsp&nbsp+15 Autoclickers, +15 Clicker power</small>";
+			document.getElementById("btn_skill_3").disabled = false;
+			document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + this.newavatarcost + ")";
+		}
+		if (this.unlockedAvatar[4]) {
+			document.getElementById("boutique_unlocked_4").setAttribute("src", "assets/avatar/avatar4.png");
+			document.getElementById("skill_description_4").innerHTML = "Robin's Ultimate Meow <br><small>&nbsp&nbspWalks on the keyboard</small>";
+			document.getElementById("btn_skill_4").disabled = false;
+			document.getElementById("Shop_btn_newavatar").innerHTML = "Got all avatars!";
+			document.getElementById("Shop_btn_newavatar").disabled = true;
 		}
 	}
 
