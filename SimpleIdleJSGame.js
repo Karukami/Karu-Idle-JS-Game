@@ -83,6 +83,7 @@ function LoadGame() {
 		player.karugems = loadedplayer.karugems;
 		player.unlockedSkill = loadedplayer.unlockedSkill;
 		player.updateBoutique();
+		player.updateAchievements();
 		player.updateShop();
 		player.UpdateAvatar();
 		player.updateStats();

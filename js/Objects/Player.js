@@ -592,6 +592,29 @@ function Player(){
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
+
+		//For loading the game
+		if (this.unlockedAchievement[0]) {
+			document.getElementById("achievement_0").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[1]) {
+			document.getElementById("achievement_1").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[2]) {
+			document.getElementById("achievement_2").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[3]) {
+			document.getElementById("achievement_3").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[4]) {
+			document.getElementById("achievement_4").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[5]) {
+			document.getElementById("achievement_5").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[6]) {
+			document.getElementById("achievement_6").setAttribute("style", "filter: none;");
+		}
 	}
 
 	this.showAchievement0 = function() {
