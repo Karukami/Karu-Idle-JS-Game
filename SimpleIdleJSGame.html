@@ -189,17 +189,17 @@
 					</div>
 					<div class="row">
 						<div class="col" id="themesdiv">
-							---- Choose a Theme ---
+							---- Music ---
 							<br>
-							<button class="btn btn-primary btn-sm" onclick="player.playBGM(0)">
-								Stop
-							</button>
-							<button class="btn btn-primary btn-sm" onclick="player.playBGM(1)">
-								Play #1
-							</button>
-							<button class="btn btn-primary btn-sm" onclick="player.playBGM(2)">
-								Play #2
-							</button>
+							<div class="row">
+								<div class="col-3"></div>
+								<div class="col" id="music_controls">
+									<img class="img-fluid" src="assets/bgm/music_stop.png" alt="" onclick="player.playBGM(0)" style="cursor: pointer">
+									<img class="img-fluid" src="assets/bgm/music_bgm1.png" alt="" onclick="player.playBGM(1)" style="cursor: pointer">
+									<img class="img-fluid" src="assets/bgm/music_bgm2.png" alt="" onclick="player.playBGM(2)" style="cursor: pointer">
+								</div>
+								<div class="col-3"></div>
+							</div>
 						</div>						
 					</div>
 					<div class="row">
