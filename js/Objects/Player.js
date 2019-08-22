@@ -32,6 +32,40 @@ function Player(){
 	this.unlockedTheme = [true, false];
 	this.unlockedMusic = [true, false];
 
+	//MUSIC
+	this.bgm1 = new Audio('assets/bgm/Karukami - Bleeps and Bloops.mp3');
+	this.bgm1.loop = true;
+
+	this.bgm2 = new Audio('assets/bgm/Karukami - Broken Repository.mp3');
+	this.bgm2.loop = true;
+
+	/*----------*/
+	/* Play BGM */
+	/*----------*/
+	this.playBGM = function(song) {
+		if (song == 0) {
+			this.bgm1.load();
+			this.bgm2.load();
+		}
+		if (song == 1) {
+			this.bgm2.load();
+			this.bgm1.load();
+			this.bgm1.play();
+		}
+		if (song == 2) {
+			if (this.unlockedMusic[1] == true) {
+				this.bgm1.load();
+				this.bgm2.load();
+				this.bgm2.play();
+			}
+			else {
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>To unlock it, play through the game!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+	}
+
 	/*------------*/
 	/* Make Money */
 	/*------------*/
@@ -336,6 +370,7 @@ function Player(){
 				this.updateBoutique();
 				this.autoclickers += 15;
 				this.clickpower += 15;
+				document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 				this.updateStats();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: SPINAL'S ULTRA COMBO!!!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -348,6 +383,7 @@ function Player(){
 				this.updateBoutique();
 				this.autoclickers += 100;
 				this.clickpower += 100;
+				document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 				this.updateStats();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: ROBIN'S ULTIMATE MEOW!!!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
@@ -393,7 +429,7 @@ function Player(){
 				this.unlockedAvatar[3] = true;
 				this.newavatarcost += Math.round(this.newavatarcost*2);
 				this.updateBoutique();
-				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Dummy!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>"+this.name+" has unlocked a new avatar: Spinal!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
 
