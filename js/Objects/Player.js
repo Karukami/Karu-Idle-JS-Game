@@ -9,6 +9,8 @@ function Player(){
 	this.autoclickers = 0;
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
+	this.activeTheme = 0;
+	this.activeMusic = 0;
 	this.gameStartedDate = new Date();
 	this.gameStarted = this.gameStartedDate.toLocaleDateString();
 	this.totalClicksEver = 0;
@@ -27,6 +29,8 @@ function Player(){
 	this.unlockedAchievement = [false, false, false, false, false,
 								false, false];
 	this.unlockedSkill = [false, false, false, false, false];
+	this.unlockedTheme = [true, false];
+	this.unlockedMusic = [true, false];
 
 	/*------------*/
 	/* Make Money */
