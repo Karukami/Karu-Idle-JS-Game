@@ -91,6 +91,7 @@ function LoadGame() {
 		player.UpdateAvatar();
 		player.updateStats();
 		player.updateTheme();
+		player.updateMusicShop();
 		document.getElementById("Shop_btn_newavatar").innerHTML = "Get New Avatar ($" + loadedplayer.newavatarcost + ")";
 		player.updateBoutique();
 		document.getElementById("namediv").innerHTML = "Player: " + loadedplayer.name;

@@ -483,13 +483,12 @@ function Player(){
 				this.updateBoutique();
 				this.autoclickers += 100;
 				this.clickpower += 100;
-				this.unlockedMusic[1] = true;
+
 				document.getElementById("btn_music_1").setAttribute("class", "btn btn-success btn-sm");
 				document.getElementById("btn_music_1").innerHTML = "Unlocked";
 				document.getElementById("btn_makemoney").innerHTML = "Make Money! ($" + this.clickpower + ")";
 				this.updateStats();
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>SKILL ACTIVATED: ROBIN'S ULTIMATE MEOW!!!&#013;");
-				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You have unlocked a new song!!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
 		}
@@ -498,8 +497,18 @@ function Player(){
 			this.unlockedSkill[2] == true &&
 			this.unlockedSkill[3] == true &&
 			this.unlockedSkill[4] == true) {
+			this.unlockedMusic[1] = true;
+			this.updateMusicShop();
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Congratulations, "+this.name+", you have completed the game!!&#013;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You have unlocked a new song!!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		}
+	}
+
+	this.updateMusicShop = function() {
+		if (this.unlockedMusic[1] == true) {
+			document.getElementById("btn_music_1").setAttribute("class", "btn btn-success btn-sm");
+			document.getElementById("btn_music_1").innerHTML = "Unlocked";	
 		}
 	}
 
