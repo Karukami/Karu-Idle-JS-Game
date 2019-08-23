@@ -1,7 +1,7 @@
 /*-------------------------*/
 /* Simple Idle JS Game CSS */
 /*-------------------------*/
-body {
+#body {
 	background-image: url("assets/bg.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -88,6 +88,10 @@ body {
 
 #ChangeNameModal {
 	color: #333333;
+}
+
+#ChangeNameModalcontent{
+	background-color: white;
 }
 
 #BoutiqueModal {
@@ -252,4 +256,6 @@ body {
 #music_controls {
 	background-color: rgba(0,0,0,0.1);
 	border-radius: 15px;
+	padding-bottom: 3px;
+	margin-bottom: 5px;
 }

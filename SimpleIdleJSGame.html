@@ -2,7 +2,7 @@
 	<head>
 		<!-- PAGE INFO -->
 		<title>Karu's Idle JS Game</title>
-		<link rel="icon" href="assets/favicon.png">
+		<link id="favicon" rel="icon" href="assets/favicon.png">
 		
 		<!-- CSS & BOOTSTRAP -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,13 +13,13 @@
 		<noscript>Sorry, your browser does not support JavaScript!</noscript>
 	</head>
 
-	<body>
+	<body id="body">
 		<div class="container-fluid">
 
 			<!-- Header -->
 			<div class="row" id="header">
 				<div class="col-2" id="headericon">
-					<img class="img-fluid rounded-circle img-thumbnail" src="assets/favicon.png" alt="Game Icon">
+					<img id="headerfavicon" class="img-fluid rounded-circle img-thumbnail" src="assets/favicon.png" alt="Game Icon">
 				</div>
 				<div class="col">
 					<div id="headertext">Karu's Idle JS Game</div>
@@ -52,10 +52,9 @@
 									<small>"This is X, from xland <br>
 									They hate y people"</small>
 								</div>
-								<img class="img-fluid" src="assets/avatar/select_arrow_left.png" alt="Previous" style="cursor: pointer" onclick="player.PreviousAvatar()">
+								<img id="avatar_selector_left" class="img-fluid" src="assets/avatar/select_arrow_left.png" alt="Previous" style="cursor: pointer" onclick="player.PreviousAvatar()">
 								<img class="img-fluid rounded" src="assets/avatar/avatar0big.png" alt="Avatar" id="currentavatar" onmouseover="player.showAvatarDescription()" onmouseleave="player.hideAvatarDescription()">
-									
-								<img class="img-fluid" src="assets/avatar/select_arrow_right.png" alt="Next" style="cursor: pointer" onclick="player.NextAvatar()"><br>
+								<img id="avatar_selector_right" class="img-fluid" src="assets/avatar/select_arrow_right.png" alt="Next" style="cursor: pointer" onclick="player.NextAvatar()"><br>
 							</div>
 							<p id="avatarname" style="transform: translate(0px, -5px);">. + Karu + .</p>
 						</div>
@@ -189,14 +188,22 @@
 					</div>
 					<div class="row">
 						<div class="col" id="themesdiv">
-							---- Music ---
+							---- Customize your game ---
 							<br>
+							<div class="row">
+									<div class="col-3"></div>
+									<div class="col" id="music_controls">
+										<img class="img-fluid" src="assets/themeicon1.png" alt="" onclick="player.selectTheme(0)" style="cursor: pointer" title="Default Theme">
+										<img class="img-fluid" src="assets/themeicon2.png" alt="" onclick="player.selectTheme(1)" style="cursor: pointer" title="Night Mode">
+									</div>
+									<div class="col-3"></div>
+							</div>
 							<div class="row">
 								<div class="col-3"></div>
 								<div class="col" id="music_controls">
-									<img class="img-fluid" src="assets/bgm/music_stop.png" alt="" onclick="player.playBGM(0)" style="cursor: pointer">
-									<img class="img-fluid" src="assets/bgm/music_bgm1.png" alt="" onclick="player.playBGM(1)" style="cursor: pointer">
-									<img class="img-fluid" src="assets/bgm/music_bgm2.png" alt="" onclick="player.playBGM(2)" style="cursor: pointer">
+									<img class="img-fluid" src="assets/bgm/music_stop.png" alt="" onclick="player.playBGM(0)" style="cursor: pointer" title="Stop">
+									<img class="img-fluid" src="assets/bgm/music_bgm1.png" alt="" onclick="player.playBGM(1)" style="cursor: pointer" title="Bleeps and Bloops">
+									<img class="img-fluid" src="assets/bgm/music_bgm2.png" alt="" onclick="player.playBGM(2)" style="cursor: pointer" title="Broken Repository">
 								</div>
 								<div class="col-3"></div>
 							</div>
@@ -204,7 +211,7 @@
 					</div>
 					<div class="row">
 						<div class="col" id="adsdiv">
-							<img class="img-fluid" src="assets/ad_dummy.png" alt="Ad">
+							<img class="img-fluid rounded" src="assets/ad_dummy.png" alt="Ad">
 						</div>
 					</div>
 				</div>
@@ -408,24 +415,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_theme_1" class="btn btn-secondary btn-sm" onclick="#" disabled>
-		      								Locked
-		      							</button>
-		      						</td>
-		      					</tr>
-		      					<tr>
-		      						<td>
-		      							<img class="img-fluid img-thumbnail rounded" src="assets/theme3icon.png" alt="theme1">
-		      						</td>
-		      						<td id="theme_description_2">
-			      						Pure Black Theme <br>
-			      						<small>
-			      							&nbsp&nbsp"Feeling like a gothic princess?"
-			      						</small>
-		      						</td>
-		      						<td style="text-align: right">
-		      							<button id="btn_theme_2" class="btn btn-secondary btn-sm" onclick="#" disabled>
-		      								Locked
+		      							<button id="btn_theme_1" class="btn btn-success btn-sm" onclick="#" disabled>
+		      								Unlocked
 		      							</button>
 		      						</td>
 		      					</tr>

@@ -10,7 +10,6 @@ function Player(){
 	this.autoclickercost = 10;
 	this.activeavatar = 1;
 	this.activeTheme = 0;
-	this.activeMusic = 0;
 	this.gameStartedDate = new Date();
 	this.gameStarted = this.gameStartedDate.toLocaleDateString();
 	this.totalClicksEver = 0;
@@ -38,6 +37,107 @@ function Player(){
 
 	this.bgm2 = new Audio('assets/bgm/Karukami - Broken Repository.mp3');
 	this.bgm2.loop = true;
+
+	/*--------------*/
+	/* Select Theme */
+	/*--------------*/
+	this.selectTheme = function(selection) {
+		switch (selection) {
+			case 0:
+				this.activeTheme = 0;
+				break;
+
+			case 1:
+				this.activeTheme = 1;
+				break;
+		}
+		this.updateTheme();
+	}
+
+	/*--------------*/
+	/* Update Theme */
+	/*--------------*/
+	this.updateTheme = function() {
+		switch (this.activeTheme) {
+			case 0:
+				document.getElementById("favicon").setAttribute("href",
+					"assets/favicon.png");
+				document.getElementById("body").setAttribute("style",
+					"background-image: url(\"assets/bg.png\"); background-repeat: no-repeat; background-size: 100%; background-position: 0px 90px; background-color: #000000; color: rgba(255,255,255,1); text-align: center;");
+				document.getElementById("header").setAttribute("style",
+					"background-image: linear-gradient(-60deg, white, rgba(180, 80, 170, 1)); padding: 0px;");
+				document.getElementById("headerfavicon").setAttribute("src",
+					"assets/favicon.png");
+				document.getElementById("navbar").setAttribute("style",
+					"height: 35px; background-image: linear-gradient(#eeeeee, white, #cccccc);");
+				document.getElementById("clockcontainer").setAttribute("style",
+					"margin-top:4px; text-align: right; color: black;");
+				document.getElementById("maincol").setAttribute("style",
+					"background-color: rgba(255,255,255,0.7); border-radius: 5px; margin-top: 15px; padding-top: 15px; padding-bottom: 15px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("divbotones").setAttribute("style",
+					"margin-right: 15px; margin-left: 15px; padding: 20px 60px 20px 60px; background-color: rgba(0,0,0,0.1); border-radius: 15px;");
+				document.getElementById("namediv").setAttribute("style",
+					"background-color: rgba(255,255,255,0.7); margin-top: 15px; margin-left: 5px; border-radius: 5px; text-align: center;	text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("avatardiv").setAttribute("style",
+					"height: 155px; background-color: rgba(255,255,255,0.7); border-radius: 5px; padding-top: 3px; margin-top: 15px; margin-left: 5px; margin-right: 0px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("avatar_selector_left").setAttribute("src", "assets/avatar/select_arrow_left.png");
+				document.getElementById("avatar_selector_right").setAttribute("src", "assets/avatar/select_arrow_right.png");
+				document.getElementById("currentavatar").setAttribute("style",
+					"box-shadow: -1px 0px 2px rgba(200, 100, 190, 1), 0px 1px 2px rgba(200, 100, 190, 1), 1px 0px 2px rgba(200, 100, 190, 1), 0px -1px 2px rgba(200, 100, 190, 1);");
+				document.getElementById("statsdiv").setAttribute("style",
+					"height: 308px;	background-color: rgba(255,255,255,0.7); border-radius: 5px; margin-top: 15px; margin-left: 10px; margin-right: 5px; padding-top: 5px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("consolediv").setAttribute("style",
+					"height: 158px;	padding: 5px; margin-top: 10px;	border-radius: 5px;	overflow: hidden; background-color: rgba(255,255,255,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("console").setAttribute("style",
+					"transform: translate(0px, -9px); resize: none;");
+				document.getElementById("shopdiv").setAttribute("style",
+					"height: 235px; padding: 5px; margin-top: 15px; margin-right: 10px; border-radius: 5px; background-color: rgba(255,255,255,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("themesdiv").setAttribute("style",
+					"height: 100px;	padding: 5px; margin-top: 15px;	margin-right: 10px;	border-radius: 5px;	background-color: rgba(255,255,255,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("adsdiv").setAttribute("style",
+					"height: 152px;	padding: 5px; margin-top: 15px;	margin-right: 10px;	border-radius: 5px;	overflow: hidden; background-color: rgba(255,255,255,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				break;
+
+			case 1:
+				document.getElementById("favicon").setAttribute("href",
+					"assets/favicon2.png");
+				document.getElementById("body").setAttribute("style",
+					"background-image: url(\"assets/bg2.png\"); background-repeat: no-repeat; background-size: 100%; background-position: 0px 90px; background-color: #000000; color: rgba(255,255,255,1); text-align: center;");
+				document.getElementById("header").setAttribute("style",
+					"background-image: linear-gradient(-60deg, #333333, rgba(0, 0, 0, 1)); padding: 0px;");
+				document.getElementById("headerfavicon").setAttribute("src",
+					"assets/favicon2.png");
+				document.getElementById("navbar").setAttribute("style",
+					"height: 35px; background-image: linear-gradient(#333333, black, black, #222222);");
+				document.getElementById("clockcontainer").setAttribute("style",
+					"margin-top:4px; text-align: right; color: white;");
+				document.getElementById("maincol").setAttribute("style",
+					"background-color: rgba(0,0,0,0.7); border-radius: 5px; margin-top: 15px; padding-top: 15px; padding-bottom: 15px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("divbotones").setAttribute("style",
+					"margin-right: 15px; margin-left: 15px; padding: 20px 60px 20px 60px; background-color: rgba(0,0,0,0.7); border-radius: 15px;");
+				document.getElementById("namediv").setAttribute("style",
+					"background-color: rgba(80,80,80,0.2); margin-top: 15px; margin-left: 5px; border-radius: 5px; text-align: center;	text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("avatardiv").setAttribute("style",
+					"height: 155px; background-color: rgba(0,0,0,0.7); border-radius: 5px; padding-top: 3px; margin-top: 15px; margin-left: 5px; margin-right: 0px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("avatar_selector_left").setAttribute("src", "assets/avatar/select_arrow_left2.png");
+				document.getElementById("avatar_selector_right").setAttribute("src", "assets/avatar/select_arrow_right2.png");
+				document.getElementById("currentavatar").setAttribute("style",
+					"box-shadow: -1px 0px 2px rgba(180, 100, 220, 1), 0px 1px 2px rgba(180, 100, 220, 1), 1px 0px 2px rgba(180, 100, 220, 1), 0px -1px 2px rgba(180, 100, 220, 1);");
+				document.getElementById("statsdiv").setAttribute("style",
+					"height: 308px;	background-color: rgba(0,0,0,0.7); border-radius: 5px; margin-top: 15px; margin-left: 10px; margin-right: 5px; padding-top: 5px; text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("consolediv").setAttribute("style",
+					"height: 158px;	padding: 5px; margin-top: 10px;	border-radius: 5px;	overflow: hidden; background-color: rgba(0,0,0,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("console").setAttribute("style",
+					"transform: translate(0px, -9px); resize: none; background-color: black; color: #00ff00");
+				document.getElementById("shopdiv").setAttribute("style",
+					"height: 235px; padding: 5px; margin-top: 15px; margin-right: 10px; border-radius: 5px; background-color: rgba(0,0,0,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("themesdiv").setAttribute("style",
+					"height: 100px;	padding: 5px; margin-top: 15px;	margin-right: 10px;	border-radius: 5px;	background-color: rgba(0,0,0,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				document.getElementById("adsdiv").setAttribute("style",
+					"height: 152px;	padding: 5px; margin-top: 15px;	margin-right: 10px;	border-radius: 5px;	overflow: hidden; background-color: rgba(0,0,0,0.7); text-shadow: -1px 0px 2px #222222, 0px 1px 2px #222222, 1px 0px 2px #222222, 0px -1px 2px #222222;");
+				break;
+		}
+	}
 
 	/*----------*/
 	/* Play BGM */
