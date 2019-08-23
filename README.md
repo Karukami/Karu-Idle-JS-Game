@@ -18,7 +18,7 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*Achievements: Goals for you to achieve!
 	*Shop: Spend your generated money!
 	*Avatar Boutique: Spend your hard earned Karu Gems on powerful avatar skills!
-	*Themes: [Coming soon...]
+	*Themes: A colorful theme and a night mode for style!
 	*Music: The game has background music, and unlockable songs too!
 
 ---
