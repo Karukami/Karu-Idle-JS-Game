@@ -306,10 +306,16 @@ function Player(){
 	this.PreviousAvatar = function() {
 		switch (this.activeavatar) {
 			case 1:
-				if (this.unlockedAvatar[2] == true) {
-					this.activeavatar = 3;
+				if (this.unlockedAvatar[4] == true) {
+					this.activeavatar = 5;
 				}
 				else if (this.unlockedAvatar[3] == true) {
+					this.activeavatar = 4;
+				}
+				else if (this.unlockedAvatar[2] == true) {
+					this.activeavatar = 3;
+				}
+				else if (this.unlockedAvatar[1] == true) {
 					this.activeavatar = 2;
 				}
 				break;
