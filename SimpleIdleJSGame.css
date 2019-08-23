@@ -259,3 +259,83 @@
 	padding-bottom: 3px;
 	margin-bottom: 5px;
 }
+
+#Shop_btn_boutique {
+	background-image: url('assets/buttons/btn_boutique.png'); 
+	background-size: 100%;
+	border: 1px solid #aa00aa;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#Shop_btn_music {
+	background-image: url('assets/buttons/btn_musictheme.png'); 
+	background-size: 100%;
+	border: 1px solid #0000aa;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#btn_makemoney {
+	background-image: url('assets/buttons/btn_makemoney.png'); 
+	background-size: 100%;
+	border: 1px solid #0000aa;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#Shop_btn_autoclicker {
+	background-image: url('assets/buttons/btn_autoclicker.png'); 
+	background-size: 100%;
+	border: 1px solid #007777;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#Shop_btn_clickpower {
+	background-image: url('assets/buttons/btn_clickpower.png'); 
+	background-size: 100%;
+	border: 1px solid #aa0000;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#Shop_btn_newavatar {
+	background-image: url('assets/buttons/btn_newavatar.png'); 
+	background-size: 100%;
+	border: 1px solid #000000;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#savebutton {
+	background-image: url('assets/buttons/btn_save.png'); 
+	background-size: 100%;
+	border: 1px solid #000000;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}
+
+#loadbutton {
+	background-image: url('assets/buttons/btn_load.png'); 
+	background-size: 100%;
+	border: 1px solid #000000;
+	text-shadow: -1px 0px 2px #222222, 
+					 0px 1px 2px #222222, 
+					 1px 0px 2px #222222, 
+					 0px -1px 2px #222222;
+}

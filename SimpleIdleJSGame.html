@@ -154,8 +154,8 @@
 						<p id="autoclickerscounter">Autoclickers: 0</p>
 						<div id="divbotones">
 							<button type="button" id="btn_makemoney" class="btn btn-primary btn-block" onclick="player.MakeMoney()" style="margin: 0px 0px 10px 0px;">Make Money! ($1)</button>
-							<button type="button" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
-							<button type="button" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
+							<button type="button" id="savebutton" class="btn btn-danger" onclick="SaveGame()">Save Game</button>
+							<button type="button" id="loadbutton" class="btn btn-secondary" onclick="LoadGame()">Load Game</button>
 						</div>
 						<br>
 						<small>Created by Karukami</small><br>
@@ -180,8 +180,8 @@
 									<button id="Shop_btn_autoclicker" class="btn btn-info btn-block btn-sm" onclick="player.AddAutoClicker()">Buy Autoclicker ($10)</button>
 									<button id="Shop_btn_clickpower" class="btn btn-info btn-block btn-sm" onclick="player.increaseClickPower()">Upgrade Click Power ($100)</button>
 									<button id="Shop_btn_newavatar" class="btn btn-info btn-block btn-sm" onclick="player.unlockNewAvatar()">Get New Avatar ($5000)</button>
-									<button id="Shop_btn_boutique" class="btn btn-info btn-block btn-sm" onclick="player.openBoutiqueModal()">Avatar Boutique</button>
-									<button class="btn btn-info btn-block btn-sm" onclick="player.openMusicThemeShopModal()">Music & Themes</button>
+									<button id="Shop_btn_boutique" class="btn btn-secondary btn-block btn-sm" onclick="player.openBoutiqueModal()">Avatar Boutique</button>
+									<button id="Shop_btn_music" class="btn btn-info btn-block btn-sm" onclick="player.openMusicThemeShopModal()">Music & Themes</button>
 								</div>
 							</div>
 						</div>
