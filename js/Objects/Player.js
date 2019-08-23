@@ -493,6 +493,14 @@ function Player(){
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
 		}
+		if (this.unlockedSkill[0] == true &&
+			this.unlockedSkill[1] == true &&
+			this.unlockedSkill[2] == true &&
+			this.unlockedSkill[3] == true &&
+			this.unlockedSkill[4] == true) {
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Congratulations, "+this.name+", you have completed the game!!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		}
 	}
 
 	/*---------------------*/
