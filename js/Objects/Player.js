@@ -31,7 +31,7 @@ function Player(){
 	this.unlockedTheme = [true, false];
 	this.unlockedMusic = [true, false, false, false, false, false];
 
-	//MUSIC VARIABLES
+	//MUSIC
 	this.bgm1 = new Audio('assets/bgm/Karukami - Bleeps and Bloops.mp3');
 	this.bgm1.loop = true;
 
