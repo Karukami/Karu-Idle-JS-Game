@@ -22,13 +22,13 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	*Music: The game has background music, and unlockable songs too!
 
 ---
-##Latest Release [v1.0]
+## Latest Release [v1.0]
 	
 	Version 1.0 is the first complete version of the game, it has 5 avatars, 2 themes,
 	2 songs and 7 achievements. The game has been published in several social media.
 
 ---
-##What's coming next?
+## What's coming next?
 	
 	-More music is being added into the game!
 	-More avatars and skills are being added!
