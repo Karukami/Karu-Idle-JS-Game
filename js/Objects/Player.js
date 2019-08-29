@@ -29,14 +29,26 @@ function Player(){
 								false, false];
 	this.unlockedSkill = [false, false, false, false, false];
 	this.unlockedTheme = [true, false];
-	this.unlockedMusic = [true, false];
+	this.unlockedMusic = [true, false, false, false, false, false];
 
-	//MUSIC
+	//MUSIC VARIABLES
 	this.bgm1 = new Audio('assets/bgm/Karukami - Bleeps and Bloops.mp3');
 	this.bgm1.loop = true;
 
 	this.bgm2 = new Audio('assets/bgm/Karukami - Broken Repository.mp3');
 	this.bgm2.loop = true;
+
+	this.bgm3 = new Audio('assets/bgm/Satisfaction.wav');
+	this.bgm3.loop = true;
+
+	this.bgm4 = new Audio('assets/bgm/Rendezvous.wav');
+	this.bgm4.loop = true;
+
+	this.bgm5 = new Audio('assets/bgm/Searching for the answer.wav');
+	this.bgm5.loop =true;
+
+	this.bgm6 = new Audio('assets/bgm/No Risk, no gain!.wav');
+	this.bgm6.loop = true;
 
 	/*--------------*/
 	/* Select Theme */
@@ -146,21 +158,97 @@ function Player(){
 		if (song == 0) {
 			this.bgm1.load();
 			this.bgm2.load();
+			this.bgm3.load();
+			this.bgm4.load();
+			this.bgm5.load();
+			this.bgm6.load();
 		}
 		if (song == 1) {
-			this.bgm2.load();
 			this.bgm1.load();
+			this.bgm2.load();
+			this.bgm3.load();
+			this.bgm4.load();
+			this.bgm5.load();
+			this.bgm6.load();
 			this.bgm1.play();
 		}
 		if (song == 2) {
 			if (this.unlockedMusic[1] == true) {
 				this.bgm1.load();
 				this.bgm2.load();
+				this.bgm3.load();
+				this.bgm4.load();
+				this.bgm5.load();
+				this.bgm6.load();
 				this.bgm2.play();
 			}
 			else {
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>To unlock it, play through the game!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (song == 3) {
+			if (this.unlockedMusic[2] == true) {
+				this.bgm1.load();
+				this.bgm2.load();
+				this.bgm3.load();
+				this.bgm4.load();
+				this.bgm5.load();
+				this.bgm6.load();
+				this.bgm3.play();
+			}
+			else {
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Coming soon!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (song == 4) {
+			if (this.unlockedMusic[3] == true) {
+				this.bgm1.load();
+				this.bgm2.load();
+				this.bgm3.load();
+				this.bgm4.load();
+				this.bgm5.load();
+				this.bgm6.load();
+				this.bgm4.play();
+			}
+			else {
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Coming soon!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (song == 5) {
+			if (this.unlockedMusic[4] == true) {
+				this.bgm1.load();
+				this.bgm2.load();
+				this.bgm3.load();
+				this.bgm4.load();
+				this.bgm5.load();
+				this.bgm6.load();
+				this.bgm5.play();
+			}
+			else {
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Coming soon!&#013;");
+				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			}
+		}
+		if (song == 6) {
+			if (this.unlockedMusic[5] == true) {
+				this.bgm1.load();
+				this.bgm2.load();
+				this.bgm3.load();
+				this.bgm4.load();
+				this.bgm5.load();
+				this.bgm6.load();
+				this.bgm5.play();
+			}
+			else {
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
+				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Coming soon!&#013;");
 				document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			}
 		}
