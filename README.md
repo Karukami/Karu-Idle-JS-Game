@@ -28,6 +28,12 @@ This is a browser game, made using HTML, CSS and JavaScript.
 	2 songs and 7 achievements. The game has been published in several social media.
 
 ---
+##What's coming next?
+	
+	-More music is being added into the game!
+	-More avatars and skills are being added!
+	
+---
 Idle Games can be a bit addicting, it's weird how just watching a number grow makes
 you feel somehow rewarded.  I love idle games myself, so I'm always trying to make one
 whenever I learn a new language.
