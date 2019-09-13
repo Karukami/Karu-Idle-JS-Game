@@ -1,4 +1,4 @@
-# Simple-Idle-JS-game
+# Karu-Idle-JS-game
 
 This is a browser game, made using HTML, CSS and JavaScript.
 
