@@ -26,7 +26,7 @@ function Player(){
 	//So 17 by playing and one every 10 minutes.
 	this.unlockedAvatar = [true, false, false, false, false];
 	this.unlockedAchievement = [false, false, false, false, false,
-								false, false];
+								false, false, false];
 	this.unlockedSkill = [false, false, false, false, false];
 	this.unlockedTheme = [true, false];
 	this.unlockedMusic = [true, false, false, false, false, false];
@@ -848,6 +848,17 @@ function Player(){
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
 
+		//Achievement 7: Click 5000 Times!
+		if (this.totalClicksEver >= 5000 && this.unlockedAchievement[7] == false) {
+			this.unlockedAchievement[7] = true;
+			document.getElementById("achievement_7").setAttribute("style", "filter: none;");
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Click 5000 Times!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+			this.karugems++;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
+			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+		}
+
 		//For loading the game
 		if (this.unlockedAchievement[0]) {
 			document.getElementById("achievement_0").setAttribute("style", "filter: none;");
@@ -869,6 +880,9 @@ function Player(){
 		}
 		if (this.unlockedAchievement[6]) {
 			document.getElementById("achievement_6").setAttribute("style", "filter: none;");
+		}
+		if (this.unlockedAchievement[7]) {
+			document.getElementById("achievement_7").setAttribute("style", "filter: none;");
 		}
 	}
 
@@ -968,6 +982,20 @@ function Player(){
 
 	this.hideAchievement6 = function() {
 		document.getElementById("achievement_6txt").setAttribute("style", "display: none");
+	}
+
+	this.showAchievement7 = function() {
+		if (this.unlockedAchievement[7] == true) {
+			document.getElementById("achievement_7txt").innerHTML = "<h6>Click 5000 Times!</h6><small>\"You've got to have fingers in your fingers\"</small>";
+		}
+		else if (this.unlockedAchievement[7] == false) {
+			document.getElementById("achievement_7txt").innerHTML = "<h6>Click 5000 Times!</h6><small>[Locked]</small>";	
+		}
+		document.getElementById("achievement_7txt").setAttribute("style", "display:} yes; background-color: rgba(255,255,255,0.7); border-radius: 5px; position: absolute; z-index: 1; padding: 5px");
+	}
+
+	this.hideAchievement7 = function() {
+		document.getElementById("achievement_7txt").setAttribute("style", "display: none");
 	}
 
 }
