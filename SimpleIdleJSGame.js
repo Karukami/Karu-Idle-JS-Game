@@ -7,7 +7,7 @@ ShowDateTime();
 var clockinterval = setInterval(ShowDateTime, 1000);
 var player = new Player();
 var autoclickertimer = setInterval("player.AutoClickerMakeMoney()", 100);
-var updateAchievementsTimer = setInterval("player.updateAchievements()", 2000);
+var updateAchievementsTimer = setInterval("player.updateAchievements()", 1000);
 var updateBoutiqueTimer = setInterval("player.updateBoutique()", 2000);
 var karuGemsGenerationTimer = setInterval("player.generateKaruGem()", 600000);
 

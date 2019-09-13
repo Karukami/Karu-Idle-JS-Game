@@ -29,7 +29,7 @@ function Player(){
 								false, false, false];
 	this.unlockedSkill = [false, false, false, false, false];
 	this.unlockedTheme = [true, false];
-	this.unlockedMusic = [true, false, false, false, false, false];
+	this.unlockedMusic = [true, false, true, true, false, false];
 
 	//MUSIC
 	this.bgm1 = new Audio('assets/bgm/Karukami - Bleeps and Bloops.mp3');
@@ -244,7 +244,7 @@ function Player(){
 				this.bgm4.load();
 				this.bgm5.load();
 				this.bgm6.load();
-				this.bgm5.play();
+				this.bgm6.play();
 			}
 			else {
 				document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>This song is locked!&#013;");
@@ -844,6 +844,8 @@ function Player(){
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Meow!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			this.karugems++;
+			this.unlockedMusic[4] = true;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You have unlocked a new song!!&#013;");
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
@@ -855,6 +857,8 @@ function Player(){
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>Achievement Unlocked: Click 5000 Times!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 			this.karugems++;
+			this.unlockedMusic[5] = true;
+			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You have unlocked a new song!!&#013;");
 			document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.concat(">>You generated a KaruGem!&#013;");
 			document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
 		}
@@ -883,6 +887,25 @@ function Player(){
 		}
 		if (this.unlockedAchievement[7]) {
 			document.getElementById("achievement_7").setAttribute("style", "filter: none;");
+		}
+		//Song icons
+		if (this.unlockedMusic[0]) {
+			document.getElementById("musicbutton1").setAttribute("style", "cursor: pointer; filter: none;");
+		}
+		if (this.unlockedMusic[1]) {
+			document.getElementById("musicbutton2").setAttribute("style", "cursor: pointer; filter: none;");
+		}
+		if (this.unlockedMusic[2]) {
+			document.getElementById("musicbutton3").setAttribute("style", "cursor: pointer; filter: none;");
+		}
+		if (this.unlockedMusic[3]) {
+			document.getElementById("musicbutton4").setAttribute("style", "cursor: pointer; filter: none;");
+		}
+		if (this.unlockedMusic[4]) {
+			document.getElementById("musicbutton5").setAttribute("style", "cursor: pointer; filter: none;");
+		}
+		if (this.unlockedMusic[5]) {
+			document.getElementById("musicbutton6").setAttribute("style", "cursor: pointer; filter: none;");
 		}
 	}
 

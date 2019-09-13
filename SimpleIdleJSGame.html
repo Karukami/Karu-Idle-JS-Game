@@ -177,13 +177,13 @@
 							<div class="row">
 								<div class="col-1"></div>
 								<div class="col" id="music_controls">
-									<img class="img-fluid" src="assets/bgm/music_stop.png" alt="" onclick="player.playBGM(0)" style="cursor: pointer" title="Stop">
-									<img class="img-fluid" src="assets/bgm/music_bgm1.png" alt="" onclick="player.playBGM(1)" style="cursor: pointer" title="Bleeps and Bloops">
-									<img class="img-fluid" src="assets/bgm/music_bgm2.png" alt="" onclick="player.playBGM(2)" style="cursor: pointer" title="Broken Repository">
-									<img class="img-fluid" src="assets/bgm/music_bgm3.png" alt="" onclick="player.playBGM(3)" style="cursor: pointer" title="Satisfaction">
-									<img class="img-fluid" src="assets/bgm/music_bgm4.png" alt="" onclick="player.playBGM(4)" style="cursor: pointer" title="Rendezvous">
-									<img class="img-fluid" src="assets/bgm/music_bgm5.png" alt="" onclick="player.playBGM(5)" style="cursor: pointer" title="Searching for the answer">
-									<img class="img-fluid" src="assets/bgm/music_bgm6.png" alt="" onclick="player.playBGM(6)" style="cursor: pointer" title="No risk, no gain!">
+									<img id="musicbutton0" class="img-fluid" src="assets/bgm/music_stop.png" alt="" onclick="player.playBGM(0)" style="cursor: pointer" title="Stop">
+									<img id="musicbutton1" class="img-fluid" src="assets/bgm/music_bgm1.png" alt="" onclick="player.playBGM(1)" style="cursor: pointer; filter: grayscale();" title="Bleeps and Bloops">
+									<img id="musicbutton2" class="img-fluid" src="assets/bgm/music_bgm2.png" alt="" onclick="player.playBGM(2)" style="cursor: pointer; filter: grayscale();" title="Broken Repository">
+									<img id="musicbutton3" class="img-fluid" src="assets/bgm/music_bgm3.png" alt="" onclick="player.playBGM(3)" style="cursor: pointer; filter: grayscale();" title="Satisfaction">
+									<img id="musicbutton4" class="img-fluid" src="assets/bgm/music_bgm4.png" alt="" onclick="player.playBGM(4)" style="cursor: pointer; filter: grayscale();" title="Rendezvous">
+									<img id="musicbutton5" class="img-fluid" src="assets/bgm/music_bgm5.png" alt="" onclick="player.playBGM(5)" style="cursor: pointer; filter: grayscale();" title="Searching for the answer">
+									<img id="musicbutton6" class="img-fluid" src="assets/bgm/music_bgm6.png" alt="" onclick="player.playBGM(6)" style="cursor: pointer; filter: grayscale();" title="No risk, no gain!">
 								</div>
 								<div class="col-1"></div>
 							</div>
@@ -461,8 +461,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_0" class="btn btn-primary btn-sm" onclick="#">
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">3
+		      							<button id="btn_music_0" class="btn btn-success btn-sm" onclick="#" disabled>
+		      								Unlocked
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -478,8 +478,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_0" class="btn btn-primary btn-sm" onclick="#">
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">5
+		      							<button id="btn_music_0" class="btn btn-success btn-sm" onclick="#" disabled>
+		      								Unlocked
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -495,8 +495,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_0" class="btn btn-primary btn-sm" onclick="#">
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">8
+		      							<button id="btn_music_1" class="btn btn-secondary btn-sm" onclick="#" disabled>
+		      								Locked
 		      							</button>
 		      						</td>
 		      					</tr>
@@ -512,8 +512,8 @@
 			      						</small>
 		      						</td>
 		      						<td style="text-align: right">
-		      							<button id="btn_skill_0" class="btn btn-primary btn-sm" onclick="#">
-		      								<img class="img-fluid" src="assets/ruby.png" alt="" style="margin-top: -3px">10
+		      							<button id="btn_music_1" class="btn btn-secondary btn-sm" onclick="#" disabled>
+		      								Locked
 		      							</button>
 		      						</td>
 		      					</tr>
