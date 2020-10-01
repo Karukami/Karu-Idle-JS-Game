@@ -1,4 +1,4 @@
-# Karu-Idle-JS-game
+# Karu-Idle-JS - An Amazing Game With Lots Of Fun
 
 This is a browser game, made using HTML, CSS and JavaScript.
 
